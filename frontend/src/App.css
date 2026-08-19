@@ -32,13 +32,16 @@ body {
 }
 
 .hero__content {
+  min-width: 0;
   padding-top: 18px;
 }
 
 .brand-logo {
   display: block;
-  width: min(230px, 100%);
+  width: 180px;
+  max-width: 100%;
   height: auto;
+  max-height: 72px;
   margin: 0 0 24px;
   object-fit: contain;
   object-position: left center;
@@ -163,7 +166,6 @@ h1 {
 
 .consent {
   display: flex !important;
-  grid-template-columns: 18px 1fr;
   align-items: flex-start;
   gap: 10px !important;
   margin-top: 4px;
@@ -252,7 +254,8 @@ h1 {
   }
 
   .brand-logo {
-    width: min(190px, 100%);
+    width: 150px;
+    max-height: 60px;
     margin-bottom: 20px;
   }
 
