@@ -1,122 +1,174 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+
+const initialForm = {
+  name: "",
+  phone: "",
+  issue: "",
+  consent: false,
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
+
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+
+    setForm((currentForm) => ({
+      ...currentForm,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+
+    if (!form.consent) {
+      setError("Подтвердите согласие на обработку персональных данных.");
+      return;
+    }
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/leads/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        const firstError = Object.values(data).flat()[0];
+        throw new Error(firstError || "Не удалось отправить заявку.");
+      }
+
+      setForm(initialForm);
+      setStatus("success");
+    } catch (requestError) {
+      setError(requestError.message || "Не удалось отправить заявку.");
+      setStatus("error");
+    }
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+    <main className="page">
+      <section className="hero">
+        <div className="hero__content">
+          <img
+            className="brand-logo"
+            src="/act-print-logo.png"
+            alt="ACT-PRINT — ремонт принтеров"
+          />
+
+          <p className="eyebrow">ACT-PRINT · Сервисный центр</p>
+
+          <h1>Ремонт принтеров в Москве — приедем в рабочий день</h1>
+
+          <p className="hero__description">
+            Диагностика на месте, цену называем до работ. Гарантия 90 дней.
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+          <ul className="advantages">
+            <li>Выезд по Москве — бесплатный</li>
+            <li>Работы мастера — от 800 ₽</li>
+            <li>Диагностика бесплатна при ремонте</li>
+            <li>Гарантия на работы — 90 дней</li>
           </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <a className="phone" href="tel:+74951916190">
+            📞 +7 (495) 191-61-90
+          </a>
+        </div>
+
+        <form className="lead-form" onSubmit={handleSubmit}>
+          <p className="lead-form__label">Ремонт принтеров и МФУ</p>
+
+          <h2>Оставьте заявку — перезвоним и назовём цену</h2>
+
+          <p className="lead-form__description">
+            Опишите, что случилось с аппаратом. Перезваниваем в рабочее время,
+            обычно в течение 15 минут.
+          </p>
+
+          <label>
+            Как к вам обращаться
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Ваше имя"
+              minLength="2"
+              required
+            />
+          </label>
+
+          <label>
+            Телефон
+            <input
+              type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              placeholder="+7 (___) ___-__-__"
+              required
+            />
+          </label>
+
+          <label>
+            Что с принтером? <span>(необязательно)</span>
+            <textarea
+              name="issue"
+              value={form.issue}
+              onChange={handleChange}
+              placeholder="Например: не печатает, полосы на листе, замятие бумаги"
+              rows="4"
+            />
+          </label>
+
+          <label className="consent">
+            <input
+              type="checkbox"
+              name="consent"
+              checked={form.consent}
+              onChange={handleChange}
+              required
+            />
+            <span>
+              Согласен с{" "}
+              <a href="/privacy" target="_blank" rel="noreferrer">
+                политикой обработки персональных данных
+              </a>{" "}
+              и{" "}
+              <a href="/offer" target="_blank" rel="noreferrer">
+                офертой
+              </a>
+              . Данные нужны только для ответа на заявку.
+            </span>
+          </label>
+
+          {error && <p className="form-message form-message--error">{error}</p>}
+
+          {status === "success" && (
+            <p className="form-message form-message--success">
+              Заявка принята. Мы перезвоним в рабочее время.
+            </p>
+          )}
+
+          <button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Отправляем…" : "Вызвать мастера →"}
+          </button>
+        </form>
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
