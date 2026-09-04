@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ремонт термопринтеров в Москве — АСТ-ПРИНТ</title>
+  <meta name="description" content="Ремонт термопринтеров и принтеров этикеток в Москве. Диагностика, выезд инженера, ремонт Zebra, TSC, Honeywell, Datamax, Citizen и других брендов.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#006d70">
+
+  <link rel="canonical" href="https://remont-termoprinterov.act-print.ru/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Ремонт термопринтеров в Москве — АСТ-ПРИНТ">
+  <meta property="og:description" content="Диагностика и ремонт термопринтеров, принтеров этикеток и штрихкодов в Москве.">
+  <meta property="og:url" content="https://remont-termoprinterov.act-print.ru/">
+  <meta property="og:site_name" content="АСТ-ПРИНТ">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #f6f6f2;
+      --color-surface: #ffffff;
+      --color-text: #202826;
+      --color-text-muted: #58635f;
+      --color-line: #d6ddd9;
+      --color-primary: #006d70;
+      --color-primary-hover: #004f52;
+      --color-accent: #b85d17;
+      --color-dark: #202925;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow: 0 18px 45px rgba(29, 43, 38, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--color-text);
+      background: var(--color-bg);
+      font-family: "Satoshi", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      padding: 10px 0;
+      color: #e9f0ed;
+      background: var(--color-dark);
+      font-size: 14px;
+    }
+
+    .topbar__inner,
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--color-line);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .header__inner {
+      min-height: 76px;
+    }
+
+    .logo {
+      color: var(--color-dark);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--color-primary);
+    }
+
+    .phone {
+      margin-left: auto;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      background: var(--color-primary);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .button:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    .button--secondary {
+      color: var(--color-text);
+      border-color: var(--color-line);
+      background: transparent;
+    }
+
+    .button--secondary:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background: #ffffff;
+    }
+
+    .hero {
+      padding: 76px 0 58px;
+      background:
+        linear-gradient(135deg, rgba(0, 109, 112, 0.11), transparent 48%),
+        linear-gradient(155deg, #f4efe5 0%, var(--color-bg) 55%, #dbeae5 100%);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5.8vw, 68px);
+      font-weight: 900;
+      letter-spacing: -0.052em;
+      line-height: 1.02;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .hero__lead,
+    .section__lead {
+      max-width: 710px;
+      color: var(--color-text-muted);
+      font-size: 19px;
+    }
+
+    .hero__lead {
+      margin-bottom: 22px;
+    }
+
+    .price {
+      display: inline-block;
+      margin: 24px 0;
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      color: var(--color-accent);
+      background: #fff1e5;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .notice {
+      margin: 15px 0 0;
+      color: var(--color-text-muted);
+      font-size: 14px;
+    }
+
+    .form-card {
+      padding: 30px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h2 {
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
+
+    .form-card > p {
+      margin-bottom: 20px;
+      color: var(--color-text-muted);
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid #b7c3be;
+      border-radius: var(--radius-sm);
+      outline: none;
+      background: #ffffff;
+    }
+
+    input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 109, 112, 0.16);
+    }
+
+    .form-card .button {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .form-legal {
+      margin: 12px 0 0;
+      color: var(--color-text-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .advantages {
+      padding: 24px 0;
+      color: #eef6f3;
+      background: var(--color-dark);
+    }
+
+    .advantages__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .advantage strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #bce3da;
+      font-size: 23px;
+      line-height: 1.2;
+    }
+
+    .advantage span {
+      font-size: 15px;
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section--white {
+      background: var(--color-surface);
+    }
+
+    .section__lead {
+      margin-bottom: 32px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .section--white .card {
+      background: var(--color-bg);
+    }
+
+    .card p {
+      margin-bottom: 14px;
+      color: var(--color-text-muted);
+    }
+
+    .card__price {
+      color: var(--color-accent);
+      font-weight: 900;
+    }
+
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 76px;
+      padding: 14px 10px;
+      border-right: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+      background: var(--color-surface);
+      font-weight: 900;
+      letter-spacing: 0.035em;
+      text-align: center;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+    }
+
+    .step {
+      min-height: 225px;
+      padding: 24px;
+      border-right: 1px solid var(--color-line);
+      background: var(--color-surface);
+    }
+
+    .step:last-child {
+      border-right: 0;
+    }
+
+    .step__number {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+    }
+
+    .cta-section {
+      padding: 76px 0;
+      color: #ffffff;
+      background: #145052;
+    }
+
+    .cta-section__grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: #d7e8e4;
+      font-size: 18px;
+    }
+
+    .cta-section .button {
+      color: #124648;
+      background: #ffffff;
+    }
+
+    .cta-section .button:hover {
+      color: #ffffff;
+      background: var(--color-dark);
+    }
+
+    footer {
+      padding: 32px 0 46px;
+      color: #d8e1de;
+      background: var(--color-dark);
+      font-size: 14px;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    .footer__legal {
+      max-width: 960px;
+      color: #aebbb6;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .advantages__grid,
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .brands {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .step:nth-child(2) {
+        border-right: 0;
+      }
+
+      .step:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--color-line);
+      }
+
+      .cta-section__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 24px, 1160px);
+      }
+
+      .topbar__inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .topbar__inner span:last-child,
+      .header .button {
+        display: none;
+      }
+
+      .header__inner {
+        min-height: 64px;
+      }
+
+      .phone {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 44px 0;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+
+      .hero__lead,
+      .section__lead {
+        font-size: 17px;
+      }
+
+      .form-card {
+        padding: 22px;
+      }
+
+      .advantages__grid,
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .advantages__grid {
+        gap: 16px;
+      }
+
+      .brands {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .step,
+      .step:nth-child(2) {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-line);
+      }
+
+      .step:last-child {
+        border-bottom: 0;
+      }
+
+      .section,
+      .cta-section {
+        padding: 54px 0;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "АСТ-ПРИНТ",
+    "url": "https://remont-termoprinterov.act-print.ru/",
+    "telephone": "+7-495-205-37-38",
+    "email": "info@act-print.ru",
+    "areaServed": {
+      "@type": "City",
+      "name": "Москва"
+    },
+    "description": "Ремонт термопринтеров, принтеров этикеток и штрихкодов в Москве."
+  }
+  </script>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Сервисный центр АСТ-ПРИНТ · Москва и Московская область</span>
+      <span>Принтеры этикеток · Диагностика · Ремонт</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт">АСТ<span>‑</span>ПРИНТ</a>
+      <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>
+      <a class="button" href="#request">Заказать диагностику</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="eyebrow">Сервисный центр в Москве</span>
+
+          <h1>Ремонт термопринтеров в Москве</h1>
+
+          <p class="hero__lead">
+            Ремонтируем термопринтеры, принтеры этикеток и штрихкодов для складов, магазинов, производства, логистики и маркировки продукции. Выполняем диагностику, настройку, замену узлов и проверку качества печати.
+          </p>
+
+          <p class="price">Стоимость после диагностики и согласования работ</p>
+
+          <div class="hero__actions">
+            <a class="button" href="#request">Узнать стоимость ремонта</a>
+            <a class="button button--secondary" href="#problems">Типовые неисправности</a>
+          </div>
+
+          <p class="notice">
+            Итоговая стоимость зависит от модели, характера неисправности, состояния печатающей головки и необходимости замены деталей.
+          </p>
+        </div>
+
+        <aside class="form-card" id="request">
+          <h2>Термопринтер не печатает?</h2>
+          <p>Оставьте заявку — уточним модель, ошибку и предложим подходящий вариант ремонта.</p>
+
+          <form action="#" method="post">
+            <div class="field">
+              <label for="name">Имя</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___‑__‑__" required>
+            </div>
+
+            <div class="field">
+              <label for="model">Модель и описание проблемы</label>
+              <input id="model" name="model" type="text" placeholder="Например, Zebra ZD421: не печатает">
+            </div>
+
+            <button class="button" type="submit">Получить консультацию</button>
+          </form>
+
+          <p class="form-legal">
+            Отправляя форму, вы соглашаетесь на обработку данных для связи по заявке.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="advantages" aria-label="Преимущества">
+      <div class="container advantages__grid">
+        <div class="advantage">
+          <strong>Для бизнеса</strong>
+          <span>склады, магазины, производство и логистика</span>
+        </div>
+
+        <div class="advantage">
+          <strong>Диагностика</strong>
+          <span>определяем причину ошибки перед ремонтом</span>
+        </div>
+
+        <div class="advantage">
+          <strong>Гарантия</strong>
+          <span>на выполненные работы и установленные детали</span>
+        </div>
+
+        <div class="advantage">
+          <strong>Выезд мастера</strong>
+          <span>по Москве и Московской области</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problems">
+      <div class="container">
+        <h2>Типовые неисправности термопринтеров</h2>
+
+        <p class="section__lead">
+          Восстанавливаем оборудование, от которого зависит маркировка, складской учёт, печать этикеток, отгрузка и работа кассовой зоны.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Не печатает этикетки</h3>
+            <p>Проверяем печатающую головку, датчики, риббон, носитель и настройки принтера.</p>
+            <strong class="card__price">После диагностики</strong>
+          </article>
+
+          <article class="card">
+            <h3>Печатает бледно</h3>
+            <p>Диагностируем состояние головки, вала, расходных материалов и параметры температуры печати.</p>
+            <strong class="card__price">После диагностики</strong>
+          </article>
+
+          <article class="card">
+            <h3>Не видит ленту</h3>
+            <p>Проверяем датчики, выполняем калибровку носителя и восстанавливаем механизм подачи.</p>
+            <strong class="card__price">После диагностики</strong>
+          </article>
+
+          <article class="card">
+            <h3>Заминает этикетки</h3>
+            <p>Устраняем загрязнения и неисправности тракта подачи этикеток.</p>
+            <strong class="card__price">После диагностики</strong>
+          </article>
+
+          <article class="card">
+            <h3>Ошибка датчика</h3>
+            <p>Проверяем датчики, кабели, разъёмы и электронную часть оборудования.</p>
+            <strong class="card__price">После диагностики</strong>
+          </article>
+
+          <article class="card">
+            <h3>Настройка печати</h3>
+            <p>Калибруем материал, помогаем восстановить читаемость штрихкодов и качество маркировки.</p>
+            <strong class="card__price">По согласованию</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <h2>Обслуживаем термопринтеры и принтеры этикеток</h2>
+
+        <p class="section__lead">
+          Работаем с оборудованием распространённых производителей для ритейла, логистики, складов, производства и маркировки товаров.
+        </p>
+
+        <div class="brands" aria-label="Поддерживаемые бренды">
+          <div class="brand">Zebra</div>
+          <div class="brand">TSC</div>
+          <div class="brand">Honeywell</div>
+          <div class="brand">Datamax</div>
+          <div class="brand">Citizen</div>
+          <div class="brand">Godex</div>
+          <div class="brand">Bixolon</div>
+          <div class="brand">SATO</div>
+          <div class="brand">Toshiba</div>
+          <div class="brand">CAB</div>
+          <div class="brand">Argox</div>
+          <div class="brand">Intermec</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Как восстанавливаем оборудование</h2>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step__number">01</span>
+            <h3>Уточняем модель</h3>
+            <p>Фиксируем модель устройства, симптомы и условия, при которых возникает ошибка.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">02</span>
+            <h3>Диагностируем</h3>
+            <p>Определяем неисправный узел и причину сбоя в механике, электронике или настройках.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">03</span>
+            <h3>Согласовываем работы</h3>
+            <p>Подтверждаем стоимость и сроки ремонта до начала работ.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">04</span>
+            <h3>Проверяем печать</h3>
+            <p>Тестируем качество печати этикетки и передаём оборудование после проверки.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-section__grid">
+        <div>
+          <h2>Остановилась маркировка или печать этикеток?</h2>
+          <p>Опишите проблему и модель — сервисный инженер подскажет следующие действия.</p>
+        </div>
+
+        <a class="button" href="#request">Заказать диагностику</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© АСТ-ПРИНТ. Ремонт термопринтеров и оборудования для маркировки в Москве.</p>
+
+      <p class="footer__legal">
+        Наименования брендов используются исключительно для идентификации обслуживаемого оборудования. Все товарные знаки и логотипы принадлежат соответствующим правообладателям. Сайт не заявляет об авторизации производителя, если это не указано отдельно.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
