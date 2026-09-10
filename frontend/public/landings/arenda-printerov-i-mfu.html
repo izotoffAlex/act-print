@@ -3,1019 +3,168 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta name="theme-color" content="#006d70">
-
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --color-bg: #f6f6f2;
-      --color-surface: #ffffff;
-      --color-surface-muted: #edf1ef;
-      --color-text: #202826;
-      --color-text-muted: #58635f;
-      --color-line: #d6ddd9;
-      --color-primary: #006d70;
-      --color-primary-hover: #004f52;
-      --color-accent: #b85d17;
-      --color-dark: #202925;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-      --shadow: 0 18px 45px rgba(29, 43, 38, 0.10);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 96px;
-    }
-
-    body {
-      margin: 0;
-      color: var(--color-text);
-      background: var(--color-bg);
-      font-family: "Satoshi", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select {
-      font: inherit;
-    }
-
-    .container {
-      width: min(1160px, calc(100% - 32px));
-      margin-inline: auto;
-    }
-
-    .topbar {
-      padding: 10px 0;
-      color: #e9f0ed;
-      background: var(--color-dark);
-      font-size: 14px;
-    }
-
-    .topbar__inner,
-    .header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--color-line);
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-    }
-
-    .header__inner {
-      min-height: 76px;
-    }
-
-    .logo {
-      color: var(--color-dark);
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--color-primary);
-    }
-
-    .phone {
-      margin-left: auto;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 20px;
-      border: 1px solid transparent;
-      border-radius: var(--radius-sm);
-      color: #ffffff;
-      background: var(--color-primary);
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-    }
-
-    .button:hover {
-      background: var(--color-primary-hover);
-    }
-
-    .button:active {
-      transform: translateY(1px);
-    }
-
-    .button--secondary {
-      color: var(--color-text);
-      border-color: var(--color-line);
-      background: transparent;
-    }
-
-    .button--secondary:hover {
-      color: var(--color-primary);
-      border-color: var(--color-primary);
-      background: #ffffff;
-    }
-
-    .hero {
-      padding: 76px 0 58px;
-      background:
-        linear-gradient(135deg, rgba(0, 109, 112, 0.11), transparent 48%),
-        linear-gradient(155deg, #f4efe5 0%, var(--color-bg) 55%, #dbeae5 100%);
-    }
-
-    .hero__grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
-      align-items: center;
-      gap: 42px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--color-primary);
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 820px;
-      margin-bottom: 20px;
-      font-size: clamp(40px, 5.8vw, 68px);
-      font-weight: 900;
-      letter-spacing: -0.052em;
-      line-height: 1.02;
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      font-size: clamp(30px, 4vw, 46px);
-      letter-spacing: -0.04em;
-      line-height: 1.08;
-    }
-
-    h3 {
-      margin-bottom: 8px;
-      font-size: 21px;
-      line-height: 1.2;
-    }
-
-    .hero__lead,
-    .section__lead {
-      max-width: 710px;
-      color: var(--color-text-muted);
-      font-size: 19px;
-    }
-
-    .hero__lead {
-      margin-bottom: 22px;
-    }
-
-    .price {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 10px;
-      margin: 24px 0;
-    }
-
-    .price__caption {
-      color: var(--color-text-muted);
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .price__value {
-      color: var(--color-accent);
-      font-size: clamp(42px, 5vw, 58px);
-      font-weight: 900;
-      letter-spacing: -0.06em;
-      line-height: 1;
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .notice {
-      margin: 15px 0 0;
-      color: var(--color-text-muted);
-      font-size: 14px;
-    }
-
-    .form-card {
-      padding: 30px;
-      border: 1px solid var(--color-line);
-      border-radius: var(--radius-lg);
-      background: var(--color-surface);
-      box-shadow: var(--shadow);
-    }
-
-    .form-card h2 {
-      margin-bottom: 8px;
-      font-size: 30px;
-    }
-
-    .form-card > p {
-      margin-bottom: 20px;
-      color: var(--color-text-muted);
-    }
-
-    .field {
-      display: grid;
-      gap: 6px;
-      margin-top: 14px;
-    }
-
-    label {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    input,
-    select {
-      width: 100%;
-      min-height: 48px;
-      padding: 10px 12px;
-      border: 1px solid #b7c3be;
-      border-radius: var(--radius-sm);
-      outline: none;
-      background: #ffffff;
-    }
-
-    input:focus,
-    select:focus {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(0, 109, 112, 0.16);
-    }
-
-    .form-card .button {
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .form-legal {
-      margin: 12px 0 0;
-      color: var(--color-text-muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .advantages {
-      padding: 24px 0;
-      color: #eef6f3;
-      background: var(--color-dark);
-    }
-
-    .advantages__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .advantage strong {
-      display: block;
-      margin-bottom: 3px;
-      color: #bce3da;
-      font-size: 23px;
-      line-height: 1.2;
-    }
-
-    .advantage span {
-      font-size: 15px;
-    }
-
-    .section {
-      padding: 78px 0;
-    }
-
-    .section--white {
-      background: var(--color-surface);
-    }
-
-    .section__lead {
-      margin-bottom: 32px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      padding: 22px;
-      border: 1px solid var(--color-line);
-      border-radius: var(--radius-md);
-      background: var(--color-surface);
-    }
-
-    .section--white .card {
-      background: var(--color-bg);
-    }
-
-    .card p {
-      margin-bottom: 14px;
-      color: var(--color-text-muted);
-    }
-
-    .card__price {
-      color: var(--color-accent);
-      font-weight: 900;
-    }
-
-    .brands {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-      gap: 12px;
-      width: 100%;
-      margin-top: 28px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 0;
-      height: 96px;
-      padding: 10px;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      background: #ffffff;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
-    }
-
-    .brand img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: 52px;
-      object-fit: contain;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      overflow: hidden;
-      border: 1px solid var(--color-line);
-      border-radius: var(--radius-md);
-    }
-
-    .step {
-      min-height: 225px;
-      padding: 24px;
-      border-right: 1px solid var(--color-line);
-      background: var(--color-surface);
-    }
-
-    .step:last-child {
-      border-right: 0;
-    }
-
-    .step__number {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--color-primary);
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .step p {
-      margin-bottom: 0;
-      color: var(--color-text-muted);
-    }
-
-    .cta-section {
-      padding: 76px 0;
-      color: #ffffff;
-      background: #145052;
-    }
-
-    .cta-section__grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .cta-section h2 {
-      margin-bottom: 12px;
-    }
-
-    .cta-section p {
-      max-width: 680px;
-      margin-bottom: 0;
-      color: #d7e8e4;
-      font-size: 18px;
-    }
-
-    .cta-section .button {
-      color: #124648;
-      background: #ffffff;
-    }
-
-    .cta-section .button:hover {
-      color: #ffffff;
-      background: var(--color-dark);
-    }
-
-    footer {
-      padding: 32px 0 46px;
-      color: #d8e1de;
-      background: var(--color-dark);
-      font-size: 14px;
-    }
-
-    footer p {
-      margin-bottom: 8px;
-    }
-
-
-    .footer__company {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px 24px;
-      margin: 18px 0;
-      color: #ffffff;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-    .footer__legal {
-      max-width: 960px;
-      color: #aebbb6;
-      font-size: 13px;
-    }
-
-    @media (max-width: 860px) {
-      .hero {
-        padding-top: 52px;
-      }
-
-      .hero__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .advantages__grid,
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .brands {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-      gap: 12px;
-      width: 100%;
-      margin-top: 28px;
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        width: min(100% - 24px, 1160px);
-      }
-
-      .topbar__inner {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .topbar__inner span:last-child,
-      .header .button {
-        display: none;
-      }
-
-      .header__inner {
-        min-height: 64px;
-      }
-
-      .phone {
-        font-size: 14px;
-      }
-
-      .hero {
-        padding: 44px 0;
-      }
-
-      h1 {
-        font-size: 39px;
-      }
-
-      .hero__lead,
-      .section__lead {
-        font-size: 17px;
-      }
-
-      .form-card {
-        padding: 22px;
-      }
-
-      .advantages__grid,
-      .cards,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .advantages__grid {
-        gap: 16px;
-      }
-
-      .brands {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-      gap: 12px;
-      width: 100%;
-      margin-top: 28px;
-    }
-  /* Responsive layout: shared rules for service landings */
-  @media (max-width: 1024px) {
-    .container {
-      width: min(100% - 40px, 1120px);
-    }
-
-    .hero__grid,
-    .split,
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .hero__content {
-      max-width: 760px;
-    }
-
-    .hero__card {
-      max-width: 760px;
-    }
-
-    .cards,
-    .problems,
-    .brands,
-    .steps {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 768px) {
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    .container {
-      width: min(100% - 32px, 1120px);
-    }
-
-    header,
-    .header,
-    .site-header {
-      position: relative;
-    }
-
-    .header__inner,
-    .nav,
-    .header__actions {
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .nav {
-      width: 100%;
-      order: 3;
-    }
-
-    .nav a {
-      padding: 10px 0;
-    }
-
-    .hero {
-      padding-top: 56px;
-      padding-bottom: 56px;
-    }
-
-    .hero__grid {
-      gap: 28px;
-    }
-
-    .hero h1,
-    h1 {
-      font-size: clamp(2rem, 9vw, 3.25rem);
-      line-height: 1.08;
-    }
-
-    h2 {
-      font-size: clamp(1.55rem, 6vw, 2.3rem);
-      line-height: 1.15;
-    }
-
-    .hero__lead,
-    .section-lead {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .hero__actions,
-    .form-actions,
-    .cta__actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .hero__actions .button,
-    .hero__actions a,
-    .form-actions .button,
-    .cta__actions .button {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .cards,
-    .problems,
-    .brands,
-    .steps,
-    .features,
-    .footer__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .card,
-    .problem,
-    .step,
-    .feature {
-      min-width: 0;
-    }
-
-    .hero__card,
-    .form-card,
-    .cta-card {
-      padding: 24px;
-    }
-
-    input,
-    select,
-    textarea,
-    button {
-      font-size: 16px;
-    }
-
-    table {
-      display: block;
-      width: 100%;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      width: min(100% - 24px, 1120px);
-    }
-
-    .hero {
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-
-    .hero h1,
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    section {
-      padding-top: 48px;
-      padding-bottom: 48px;
-    }
-
-    .hero__card,
-    .form-card,
-    .cta-card,
-    .card,
-    .problem,
-    .step,
-    .feature {
-      border-radius: 16px;
-    }
-
-    .hero__card,
-    .form-card,
-    .cta-card {
-      padding: 20px;
-    }
-  }
-
-  </style>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "АСТ-ПРИНТ",
-  "url": "https://arenda-printerov-i-mfu.act-print.ru/",
-  "telephone": "+7-495-205-37-38",
-  "email": "info@act-print.ru",
-  "areaServed": {
-    "@type": "City",
-    "name": "Москва"
-  },
-  "description": "Сервисный центр АСТ-ПРИНТ: услуги по ремонту, обслуживанию и сопровождению оргтехники в Москве."
-}
-</script>
-  <link rel="icon" type="image/png" sizes="100x100" href="../favicon.png">
-  <title>Аренда принтеров и МФУ в Москве — АСТ-ПРИНТ</title>
-  <meta name="description" content="Аренда принтеров и МФУ в Москве. Укажите нужные функции, объём печати и количество пользователей.">
   <meta name="robots" content="index,follow">
+  <title>Аренда принтеров и МФУ в Москве — АСТ-ПРИНТ</title>
+  <meta name="description" content="Аренда и лизинг принтеров, МФУ и копировальной техники в Москве. Подбор оборудования Kyocera и HP под задачи бизнеса.">
   <link rel="canonical" href="https://arenda-printerov-i-mfu.act-print.ru/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="АСТ-ПРИНТ">
   <meta property="og:title" content="Аренда принтеров и МФУ в Москве — АСТ-ПРИНТ">
-  <meta property="og:description" content="Аренда принтеров и МФУ в Москве. Укажите нужные функции, объём печати и количество пользователей.">
+  <meta property="og:description" content="Аренда и лизинг копировальной техники, МФУ, цветных и чёрно-белых принтеров. Подбор под задачи бизнеса.">
   <meta property="og:url" content="https://arenda-printerov-i-mfu.act-print.ru/">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":"Аренда принтеров и МФУ в Москве","description":"Подбор и аренда принтеров и МФУ для офисных задач в Москве.","url":"https://arenda-printerov-i-mfu.act-print.ru/","serviceType":"Аренда принтеров и МФУ в Москве","provider":{"@type":"Organization","name":"АСТ-ПРИНТ","url":"https://act-print.ru/","telephone":"+7-495-205-37-38","email":"info@act-print.ru"},"areaServed":{"@type":"City","name":"Москва"}}
-</script>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="100x100" href="../favicon.png">
+  <script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=3iWw4Uwcwxi7vRJw4Gt2Klli_btquGft7NReyVKl6qnGkbU4YsyI8ICZVdqrOCXy3lRr257LeCWfmX6cpR3rSXOFR3Ihi1Q6lHGbbLfjcZeV7wJ8xNm0Azf88NiPANR3YhkI4FStV_6F7vGroSDGzeac629Z1Z648nZNYo6TMHRiDfVr--QKQ-kn0p_EEtDgLl36UOSvpm2xUYYcCiC_pcYMNswve3yfRfYKnBtHWfkzczDNUv8diRnyODzs3hDwaTqtsQF7Il1PVAnDiDrMOLP8tafM-aNkeiBe0Asr7-t6QtItgzdcKyv5wEICQ_peNhaz9pp7YOwax06bEl-PGLM9V5sqqugI831x5HVSK32A3epQ7GGlmU0vtMW3-OaVXnjdpIfE6CipsCVKvNucVN6ivOgWvhkcvI98V1dZNjkIF4anUwDmV9Mm0uTAK3_1ugYK_LOUx9-appEB4gBmFbx3cvWBEYDhpnA0PmN7E9-nVG4W2Xkr_0NKTZ9fcNkVgO3_tWQ1E7xdIqkCNJ97GhMDJBeoTxoWrRN7ckxYHpYDefz2zhxfc9W_jkz6f32uNhbV3gyYMQ0OwK9-ARyygQeHYRbD-9b1zsIeKrzi_ZiiUHkan5W28JIh7_g3fgJ9HXaSC6lFZZ9G-KAxb7KidWiihGiip0N7J9CXM__StC9cG5GQT6OZ4XevmKEbgYmqTx52iqux9Ahf1ZiRxdr6CobWzuHMNTCqx38qoj0CfbpDFJsJ8gaH38EKyUrqLdouSp_q5o-KD2n0OxB_LF19W7_vyVwRmnaatnsymrcjGFfhfOogQNKmNZlwDFpHe66gJmnCS9-oHuM4TSI61HrtGTQ2EVXPtErtMGukIvYEJsJgLj3VvDlWlCEUQEN3p16CEplNF14Det8-H8h6SSB0248lKEqdSEI5yKWU3_Onui0Pts_vLa0e40tYJdh-zbwak1HzgC9fhHkhqBZdtTtZUiKRgXlwNFU4u2G5i-niaTkIFbTaQ8rZwRmL4krvTAj6Y0nbcFd6TB1XODyDR2XG6lqS7RobaaLyqU03i2HvdZPTefhFDelZg1K3gAfg6fDQk9RR9mzzXFi7LeUW88xLJgTDmvHoXbLPwBRNMA3aL7PqkngwavziS-Q5VWCtRoL-kwxEJxUk4Ycg2bHhpdOQWn2Bv977eJpP8g8Jk4x0ZLTQUxRDP8bRAjmpw2eovhsGvkCT2UsEsj2KKnjc4cInRl40jHo81Q5n-bj0i7irq2cIqAErHFnpoowdpOyBF2djchLTlXfGV9UAqrxYCIjJ3ubFSvRzQ4Ki9UoObeTQQbq8PpjMkNdhtd8xku_Vg9DTUXqydiO6G5wGOCHWmdTP1jPE4wR04uLRZQHqRAnLXJGBzbZpNhFyGcEmSXOhXa-nNqpHqC0j1TTvrrCRdo5bWMl4-kSFFLgqVRZOM76WmCaslTDlWZ0Elc6EqPfDCND8GqJtDAvoFiIeCPIQo6nQDnUAS9Pt_FJPVLRhBljPRtYDssMDX84pYvjS7MjyuatLe5M7bxc5r8qBYONhm_AIOzxiN6KSzwQGhii_N2i3lKX9xkTOdITb505mQfGotqKKOAksU9iyhFMu4LGTIIztJK5lkei4DU0eaMKW_geRmihU1i43_B7v76oytrdSIuGseukLsBTSNInKh4a6hq_D_uGMNgxK4i0_gj2YjzUW90f4eaECK2DC0pWNI3PGB6ho4wfYXEpZKYq6fX4bHsAp0jB1-pwZe9-hBXRyc-fFEyVp5SjDSU-qCh-rRsY0q9joJqVnW4eqXCYLkubzZOBzcuQMBpVlCLtHqncysTaj-lkqGWXFWqkLqDi9-2mxJdVtQQ-1dbZ4c5noJWa7I2Xr-r5mTnPeEFB0AfIaL5zfQ4ct3IHuWSN5mOGcRap3fE_fjL3St0mamTHF7yOxgM_QL2B3kFyYzxYKp9rm93bTN7936MasbX-MKPuzoepDOju2LTFfH14GclKAUtxO0M1qete_xX9D4O3dtLSJUagiuKNJ6aM2jNSwCnLSoS3sa44_RxDe_iNlC0-sUON6cnaQz7MUXCU2P7wMnrpOmGVM1iaZvajqVOEab6H4aGNu73IVsuqz0gpA140Qxsq3oug_0zZ1zWG_tW3apyc2KRscHXVCf6U7qPue5U6elN7I0LVIaMx1z-Aavvw5waaGlQt7oXYdsLCkIJfxGseEwZV5ywg1xvfluwclY03T6T262xf20vi4s9mrIlqVOLb-mieags05OP0QCwhd8oXPoqyfphk0HS2SgF_fvdTjIEW33eXsufGKheeGIAkOfPhZjUV9fJrmlpjcE8iiKvfgTad9Re4" charset="UTF-8"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Аренда принтеров и МФУ в Москве",
+    "description": "Аренда и лизинг копировальных устройств, МФУ, цветных и чёрно-белых принтеров для бизнеса.",
+    "url": "https://arenda-printerov-i-mfu.act-print.ru/",
+    "serviceType": "Аренда и лизинг оргтехники",
+    "provider": {
+      "@type": "Organization",
+      "name": "АСТ-ПРИНТ",
+      "url": "https://act-print.ru/",
+      "telephone": "+7-495-205-37-38",
+      "email": "info@act-print.ru"
+    },
+    "areaServed": {"@type": "City", "name": "Москва"}
+  }
+  </script>
+  <style>
+    :root { --color-bg:#f6f6f2; --color-surface:#fff; --color-text:#202826; --color-text-muted:#58635f; --color-line:#d6ddd9; --color-primary:#006d70; --color-primary-hover:#004f52; --color-dark:#202925; --radius-sm:8px; --radius-md:12px; --radius-lg:18px; --shadow:0 18px 45px rgba(29,43,38,.10); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:96px; }
+    body { margin:0; color:var(--color-text); background:var(--color-bg); font-family:"Satoshi",Arial,sans-serif; font-size:16px; line-height:1.55; }
+    a { color:inherit; text-decoration:none; }
+    button,input,select,textarea { font:inherit; }
+    .container { width:min(1160px,calc(100% - 32px)); margin-inline:auto; }
+    .topbar { padding:10px 0; color:#e9f0ed; background:var(--color-dark); font-size:14px; }
+    .topbar__inner,.header__inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .header { position:sticky; top:0; z-index:10; border-bottom:1px solid var(--color-line); background:rgba(255,255,255,.95); backdrop-filter:blur(12px); }
+    .header__inner { min-height:76px; }
+    .logo { display:inline-flex; align-items:center; }
+    .logo img { display:block; width:180px; height:48px; object-fit:contain; }
+    .phone { margin-left:auto; font-weight:700; white-space:nowrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 20px; border:1px solid transparent; border-radius:var(--radius-sm); color:#fff; background:var(--color-primary); font-weight:700; cursor:pointer; transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease; }
+    .button:hover { background:var(--color-primary-hover); }
+    .button:active { transform:translateY(1px); }
+    .button--secondary { color:var(--color-text); border-color:var(--color-line); background:transparent; }
+    .button--secondary:hover { color:var(--color-primary); border-color:var(--color-primary); background:#fff; }
+    .hero { padding:76px 0 58px; background:linear-gradient(135deg,rgba(0,109,112,.11),transparent 48%),linear-gradient(155deg,#f4efe5 0%,var(--color-bg) 55%,#dbeae5 100%); }
+    .hero__grid { display:grid; grid-template-columns:minmax(0,1.28fr) minmax(320px,.72fr); align-items:center; gap:42px; }
+    .eyebrow { display:inline-block; margin-bottom:18px; color:var(--color-primary); font-size:14px; font-weight:900; letter-spacing:.09em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:820px; margin-bottom:20px; font-size:clamp(40px,5.8vw,68px); font-weight:900; letter-spacing:-.052em; line-height:1.02; }
+    h2 { margin-bottom:14px; font-size:clamp(30px,4vw,46px); letter-spacing:-.04em; line-height:1.08; }
+    h3 { margin-bottom:8px; font-size:21px; line-height:1.2; }
+    .hero__lead,.section__lead { max-width:710px; color:var(--color-text-muted); font-size:19px; }
+    .hero__lead { margin-bottom:26px; }
+    .hero__actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .notice { margin:15px 0 0; color:var(--color-text-muted); font-size:14px; }
+    .form-card { padding:30px; border:1px solid var(--color-line); border-radius:var(--radius-lg); background:var(--color-surface); box-shadow:var(--shadow); }
+    .form-card h2 { margin-bottom:8px; font-size:30px; }
+    .form-card > p { margin-bottom:20px; color:var(--color-text-muted); }
+    .field { display:grid; gap:6px; margin-top:14px; }
+    label { font-size:14px; font-weight:700; }
+    input,select,textarea { width:100%; min-height:48px; padding:10px 12px; border:1px solid #b7c3be; border-radius:var(--radius-sm); outline:none; background:#fff; }
+    textarea { min-height:96px; resize:vertical; }
+    input:focus,select:focus,textarea:focus { border-color:var(--color-primary); box-shadow:0 0 0 3px rgba(0,109,112,.16); }
+    .form-card .button { width:100%; margin-top:20px; }
+    .form-legal { margin:12px 0 0; color:var(--color-text-muted); font-size:12px; line-height:1.45; }
+    .advantages { padding:24px 0; color:#eef6f3; background:var(--color-dark); }
+    .advantages__grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .advantage strong { display:block; margin-bottom:3px; color:#bce3da; font-size:18px; line-height:1.2; }
+    .advantage span { font-size:15px; }
+    .section { padding:78px 0; }
+    .section--white { background:var(--color-surface); }
+    .section__lead { margin-bottom:32px; }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .card { min-width:0; padding:22px; border:1px solid var(--color-line); border-radius:var(--radius-md); background:var(--color-surface); }
+    .section--white .card { background:var(--color-bg); }
+    .card p { margin-bottom:0; color:var(--color-text-muted); }
+    .brand-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; max-width:760px; }
+    .brand { padding:28px; border:1px solid var(--color-line); border-radius:var(--radius-md); background:var(--color-surface); font-size:clamp(24px,3vw,38px); font-weight:900; letter-spacing:-.04em; }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden; border:1px solid var(--color-line); border-radius:var(--radius-md); }
+    .step { min-width:0; min-height:225px; padding:24px; border-right:1px solid var(--color-line); background:var(--color-surface); }
+    .step:last-child { border-right:0; }
+    .step__number { display:block; margin-bottom:10px; color:var(--color-primary); font-size:14px; font-weight:900; letter-spacing:.08em; }
+    .step p { margin-bottom:0; color:var(--color-text-muted); }
+    .cta-section { padding:76px 0; color:#fff; background:#145052; }
+    .cta-section__grid { display:grid; grid-template-columns:1fr auto; align-items:center; gap:28px; }
+    .cta-section h2 { margin-bottom:12px; }
+    .cta-section p { max-width:680px; margin-bottom:0; color:#d7e8e4; font-size:18px; }
+    .cta-section .button { color:#124648; background:#fff; }
+    .cta-section .button:hover { color:#fff; background:var(--color-dark); }
+    footer { padding:32px 0 46px; color:#d8e1de; background:var(--color-dark); font-size:14px; }
+    footer p { margin-bottom:8px; }
+    .footer__company { display:flex; flex-wrap:wrap; align-items:center; gap:8px 24px; margin:18px 0; color:#fff; font-size:14px; line-height:1.45; }
+    .footer__legal { max-width:960px; color:#aebbb6; font-size:13px; }
+    @media (max-width:860px) { .hero{padding-top:52px}.hero__grid{grid-template-columns:1fr}.advantages__grid,.cards{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:640px) { .steps{grid-template-columns:1fr}.step{min-height:auto;border-right:0;border-bottom:1px solid var(--color-line)}.step:last-child{border-bottom:0} }
+    @media (max-width:560px) { .container{width:min(100% - 24px,1160px)}.topbar__inner{justify-content:center;text-align:center}.topbar__inner span:last-child,.header .button{display:none}.header__inner{min-height:64px}.logo img{width:150px;height:40px}.phone{font-size:14px}.hero{padding:44px 0}h1{font-size:39px}.hero__lead,.section__lead{font-size:17px}.form-card{padding:22px}.advantages__grid,.cards,.brand-list{grid-template-columns:1fr}.advantages__grid{gap:16px}.cta-section__grid{grid-template-columns:1fr} }
+  </style>
 </head>
-
 <body>
-  <div class="topbar">
-    <div class="container topbar__inner">
-      <span>Сервисный центр АСТ-ПРИНТ · Москва и Московская область</span>
-      <span>Диагностика · Ремонт · Гарантия</span>
-    </div>
-  </div>
-
-  <header class="header">
-    <div class="container header__inner">
-      <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт">
-  <img src="../act-print-logo.png" alt="АСТ-ПРИНТ" width="180" height="48">
-</a>
-      <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>
-      <a class="button" href="#request">Вызвать мастера</a>
-    </div>
-  </header>
-
+  <div class="topbar"><div class="container topbar__inner"><span>АСТ-ПРИНТ · решения для бизнеса в Москве</span><span>Отдел продаж: +7 (495) 205‑37‑38</span></div></div>
+  <header class="header"><div class="container header__inner">
+    <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт"><img src="../act-print-logo.png" alt="АСТ-ПРИНТ" width="180" height="48"></a>
+    <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a><a class="button" href="#request">Подобрать технику</a>
+  </div></header>
   <main>
-    <section class="hero">
-      <div class="container hero__grid">
-        <div>
-          <span class="eyebrow">Аренда\ принтеров\ и\ МФУ\ в\ Москве</span>
-
-          <h1>Аренда\ принтеров\ и\ МФУ\ в\ Москве</h1>
-
-          <p class="hero__lead">
-            Восстанавливаем лазерные, струйные и матричные принтеры. Выезд инженера, диагностика, согласование стоимости и гарантия на выполненные работы.
-          </p>
-
-          <div class="price">
-            <span class="price__caption">Ремонт типовой неисправности</span>
-            <strong class="price__value">от 800 ₽</strong>
-          </div>
-
-          <div class="hero__actions">
-            <a class="button" href="#request">Узнать точную стоимость</a>
-            <a class="button button--secondary" href="#problems">Посмотреть неисправности</a>
-          </div>
-
-          <p class="notice">
-            Итоговая стоимость зависит от модели, причины неисправности и необходимых запчастей.
-          </p>
-        </div>
-
-        <aside class="form-card" id="request">
-          <h2>Нужен ремонт?</h2>
-          <p>Оставьте контакты — уточним модель принтера и сориентируем по срокам.</p>
-
-          <form action="#" method="post">
-            <div class="field">
-              <label for="name">Имя</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
-            </div>
-
-            <div class="field">
-              <label for="phone">Телефон</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___‑__‑__" required>
-            </div>
-
-            <div class="field">
-              <label for="problem">Что случилось?</label>
-              <select id="problem" name="problem">
-                <option>Принтер не печатает</option>
-                <option>Зажёвывает бумагу</option>
-                <option>Печатает с полосами</option>
-                <option>Не включается</option>
-                <option>Не захватывает бумагу</option>
-                <option>Другая неисправность</option>
-              </select>
-            </div>
-
-            <button class="button" type="submit">Получить консультацию</button>
-          </form>
-
-          <p class="form-legal">
-            Отправляя форму, вы соглашаетесь на обработку данных для связи по заявке.
-          </p>
-        </aside>
+    <section class="hero"><div class="container hero__grid"><div>
+      <span class="eyebrow">Решения для бизнеса</span>
+      <h1>Аренда принтеров и МФУ в Москве</h1>
+      <p class="hero__lead">Арендуйте или берите в лизинг копировальные устройства, МФУ, цветные и чёрно-белые принтеры и другую офисную оргтехнику. Подберём оборудование с учётом задач, сферы деятельности и возможностей компании.</p>
+      <div class="hero__actions"><a class="button" href="#request">Подобрать технику</a><a class="button button--secondary" href="#equipment">Варианты оборудования</a></div>
+      <p class="notice">Стоимость и условия аренды определяются после подбора оборудования и согласования задачи.</p>
+    </div><aside class="form-card" id="request">
+      <h2>Подобрать технику в аренду</h2><p>Оставьте контакты — уточним задачи, срок и необходимое количество устройств.</p>
+      <form action="#request" method="post">
+        <div class="field"><label for="name">Имя</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___‑__‑__" required></div>
+        <div class="field"><label for="equipment-type">Что требуется?</label><select id="equipment-type" name="equipment-type"><option>МФУ</option><option>Чёрно-белый принтер</option><option>Цветной принтер</option><option>Копировальное устройство</option><option>Несколько устройств для офиса</option><option>Нужна консультация</option></select></div>
+        <div class="field"><label for="comment">Срок аренды и задача</label><textarea id="comment" name="comment" placeholder="Например: 3 МФУ на 6 месяцев для офиса"></textarea></div>
+        <button class="button" type="submit">Получить консультацию</button>
+      </form><p class="form-legal">Отправляя форму, вы соглашаетесь на обработку данных для связи по заявке.</p>
+    </aside></div></section>
+    <section class="advantages" aria-label="Преимущества аренды оргтехники"><div class="container advantages__grid">
+      <div class="advantage"><strong>Аренда или лизинг</strong><span>вариант вместо покупки техники</span></div>
+      <div class="advantage"><strong>Подбор под задачу</strong><span>учитываем сферу деятельности и нагрузку</span></div>
+      <div class="advantage"><strong>Офисная техника</strong><span>МФУ, принтеры и копировальные устройства</span></div>
+      <div class="advantage"><strong>Система заявок</strong><span>контроль хода исполнения обращений</span></div>
+    </div></section>
+    <section class="section" id="equipment"><div class="container">
+      <h2>Какую технику можно арендовать</h2><p class="section__lead">Аренда подходит компаниям с сезонной, срочной или нестандартной потребностью в печати, когда покупка техники нецелесообразна.</p>
+      <div class="cards">
+        <article class="card"><h3>Копировальные устройства</h3><p>Техника для копирования документов и организации офисного документооборота.</p></article>
+        <article class="card"><h3>МФУ</h3><p>Многофункциональные устройства для печати, копирования и сканирования документов.</p></article>
+        <article class="card"><h3>Чёрно-белые принтеры</h3><p>Офисные устройства для регулярной монохромной печати.</p></article>
+        <article class="card"><h3>Цветные принтеры</h3><p>Оборудование для задач, где требуется цветная печать документов и материалов.</p></article>
+        <article class="card"><h3>Другая оргтехника</h3><p>Подбор офисного оборудования по согласованной задаче и условиям аренды.</p></article>
+        <article class="card"><h3>Лизинг оборудования</h3><p>Возможность получить технику в лизинг по согласованным условиям.</p></article>
       </div>
-    </section>
-
-    <section class="advantages" aria-label="Преимущества">
-      <div class="container advantages__grid">
-        <div class="advantage">
-          <strong>С 2018 года</strong>
-          <span>ремонтируем печатную технику</span>
-        </div>
-
-        <div class="advantage">
-          <strong>1000+ клиентов</strong>
-          <span>обслужили в сервисе</span>
-        </div>
-
-        <div class="advantage">
-          <strong>Гарантия</strong>
-          <span>на работы и комплектующие</span>
-        </div>
-
-        <div class="advantage">
-          <strong>Москва и МО</strong>
-          <span>выезд мастера к клиенту</span>
-        </div>
+    </div></section>
+    <section class="section section--white"><div class="container">
+      <h2>Оборудование проверенных вендоров</h2><p class="section__lead">АСТ‑ПРИНТ предлагает в аренду технику Kyocera и HP (Hewlett‑Packard), указанных на основной странице услуги.</p>
+      <div class="brand-list"><div class="brand">Kyocera</div><div class="brand">HP</div></div>
+    </div></section>
+    <section class="section"><div class="container">
+      <h2>Как оформить аренду</h2><div class="steps">
+        <article class="step"><span class="step__number">01</span><h3>Оставляете заявку</h3><p>Сообщаете, какая техника нужна, на какой срок и для каких задач.</p></article>
+        <article class="step"><span class="step__number">02</span><h3>Подбираем решение</h3><p>Учитываем сферу деятельности, финансовые возможности и требования к печати.</p></article>
+        <article class="step"><span class="step__number">03</span><h3>Согласовываем условия</h3><p>Определяем состав оборудования, срок аренды или лизинга и порядок взаимодействия.</p></article>
+        <article class="step"><span class="step__number">04</span><h3>Контролируете заявки</h3><p>Получаете доступ к системе для создания обращений и контроля хода их исполнения; возможна интеграция с SD.</p></article>
       </div>
-    </section>
-
-    <section class="section" id="problems">
-      <div class="container">
-        <h2>Какие неисправности принтеров устраняем</h2>
-
-        <p class="section__lead">
-          Назовите симптомы неисправности — мастер предварительно оценит работы и подскажет, можно ли решить проблему на месте.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Принтер не печатает</h3>
-            <p>Проводим диагностику печати, картриджа, механики и программной части оборудования.</p>
-            <strong class="card__price">от 800 ₽</strong>
-          </article>
-
-          <article class="card">
-            <h3>Полосы и пятна</h3>
-            <p>Проверяем узел печати, расходные материалы, фотобарабан и термоузел.</p>
-            <strong class="card__price">от 1 000 ₽</strong>
-          </article>
-
-          <article class="card">
-            <h3>Зажёвывает бумагу</h3>
-            <p>Диагностируем тракт подачи, чистим или меняем ролики и устраняем причины замятия.</p>
-            <strong class="card__price">от 1 500 ₽</strong>
-          </article>
-
-          <article class="card">
-            <h3>Не включается</h3>
-            <p>Проверяем питание, блок питания, платы управления и внутренние соединения.</p>
-            <strong class="card__price">от 3 000 ₽</strong>
-          </article>
-
-          <article class="card">
-            <h3>Не захватывает бумагу</h3>
-            <p>Восстанавливаем механизм подачи бумаги, проверяем ролики и лоток.</p>
-            <strong class="card__price">от 1 500 ₽</strong>
-          </article>
-
-          <article class="card">
-            <h3>Плановое обслуживание</h3>
-            <p>Проводим очистку, профилактику и проверку основных узлов для стабильной работы техники.</p>
-            <strong class="card__price">По согласованию</strong>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--white">
-      <div class="container">
-        <h2>Ремонтируем принтеры популярных брендов</h2>
-
-        <p class="section__lead">
-          Работаем с офисной и профессиональной печатной техникой разных производителей.
-        </p>
-
-        <div class="brands" aria-label="Поддерживаемые бренды">
-          <div class="brand"><img src="../brands/remont-printerov/hp.jpeg" alt="HP" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/samsung.jpg" alt="Samsung" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/kyocera.jpeg" alt="Kyocera" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/canon.jpeg" alt="Canon" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/xerox.jpeg" alt="Xerox" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/brother.jpeg" alt="Brother" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/pantum.jpeg" alt="Pantum" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/ricoh.jpg" alt="Ricoh" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/panasonic.jpeg" alt="Panasonic" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/sharp.jpeg" alt="Sharp" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/epson.jpg" alt="Epson" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/oki.jpeg" alt="OKI" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-printerov/konica.jpeg" alt="Konica Minolta" loading="lazy"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Как проходит ремонт</h2>
-
-        <div class="steps">
-          <article class="step">
-            <span class="step__number">01</span>
-            <h3>Оставляете заявку</h3>
-            <p>Описываете модель принтера и симптомы неисправности.</p>
-          </article>
-
-          <article class="step">
-            <span class="step__number">02</span>
-            <h3>Проводим диагностику</h3>
-            <p>Инженер определяет причину неисправности и объём необходимых работ.</p>
-          </article>
-
-          <article class="step">
-            <span class="step__number">03</span>
-            <h3>Согласовываем цену</h3>
-            <p>Называем итоговую стоимость до начала ремонта.</p>
-          </article>
-
-          <article class="step">
-            <span class="step__number">04</span>
-            <h3>Проверяем и гарантируем</h3>
-            <p>Тестируем принтер после ремонта и предоставляем гарантию на работы.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container cta-section__grid">
-        <div>
-          <h2>Принтер остановил работу?</h2>
-          <p>Оставьте заявку — уточним детали и подскажем, можно ли восстановить технику на месте.</p>
-        </div>
-
-        <a class="button" href="#request">Вызвать мастера</a>
-      </div>
-    </section>
+    </div></section>
+    <section class="cta-section"><div class="container cta-section__grid"><div><h2>Нужны принтеры или МФУ в аренду?</h2><p>Оставьте заявку — специалисты АСТ‑ПРИНТ подберут оборудование под задачи вашей компании.</p></div><a class="button" href="#request">Подобрать технику</a></div></section>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>© АСТ-ПРИНТ. Ремонт и сервисное обслуживание печатной техники в Москве.</p>
-      <div class="footer__company">
-        <span>© 2026 ООО «АСТ-ПРИНТ»</span>
-        <span>Аккредитованная IT‑компания</span>
-        <span>ИНН 9709091910 │ ОГРН 1237700213387</span>
-      </div>
-      <p class="footer__legal">
-        Наименования брендов используются исключительно для идентификации обслуживаемого оборудования. Все товарные знаки и логотипы принадлежат соответствующим правообладателям. Сайт не заявляет об авторизации производителя, если это не указано отдельно.
-      </p>
-    </div>
-  </footer>
+  <footer><div class="container"><p>© АСТ-ПРИНТ. Решения для бизнеса и аренда оргтехники в Москве.</p><div class="footer__company"><span>© 2026 ООО «АСТ-ПРИНТ»</span><span>Аккредитованная IT‑компания</span><span>ИНН 9709091910 │ ОГРН 1237700213387</span></div><p class="footer__legal">Наименования брендов используются исключительно для идентификации обслуживаемого оборудования. Все товарные знаки принадлежат соответствующим правообладателям.</p></div></footer>
+  <script>document.querySelectorAll('form').forEach(function(form){form.addEventListener('submit',function(event){event.preventDefault();var button=form.querySelector('button[type="submit"]');if(button){button.textContent='Заявка принята ✔';button.disabled=true;}});});</script>
 </body>
 </html>

@@ -1,78 +1,653 @@
-<!doctype html><html lang="ru"><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width, initial-scale=1">  <meta name="theme-color" content="#006d70">  <link rel="preconnect" href="https://api.fontshare.com">  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">  <style>    :root {      --color-bg: #f6f6f2;      --color-surface: #ffffff;      --color-surface-muted: #edf1ef;      --color-text: #202826;      --color-text-muted: #58635f;      --color-line: #d6ddd9;      --color-primary: #006d70;      --color-primary-hover: #004f52;      --color-accent: #b85d17;      --color-dark: #202925;      --radius-sm: 8px;      --radius-md: 12px;      --radius-lg: 18px;      --shadow: 0 18px 45px rgba(29, 43, 38, 0.10);    }    * {      box-sizing: border-box;    }    html {      scroll-behavior: smooth;      scroll-padding-top: 96px;    }    body {      margin: 0;      color: var(--color-text);      background: var(--color-bg);      font-family: "Satoshi", Arial, sans-serif;      font-size: 16px;      line-height: 1.55;    }    a {      color: inherit;      text-decoration: none;    }    button,    input,    select {      font: inherit;    }    .container {      width: min(1160px, calc(100% - 32px));      margin-inline: auto;    }    .topbar {      padding: 10px 0;      color: #e9f0ed;      background: var(--color-dark);      font-size: 14px;    }    .topbar__inner,    .header__inner {      display: flex;      align-items: center;      justify-content: space-between;      gap: 20px;    }    .header {      position: sticky;      top: 0;      z-index: 10;      border-bottom: 1px solid var(--color-line);      background: rgba(255, 255, 255, 0.95);      backdrop-filter: blur(12px);    }    .header__inner {      min-height: 76px;    }    .logo {      color: var(--color-dark);      font-size: 20px;      font-weight: 900;      letter-spacing: 0.08em;      white-space: nowrap;    }    .logo span {      color: var(--color-primary);    }    .phone {      margin-left: auto;      font-weight: 700;      white-space: nowrap;    }    .button {      display: inline-flex;      align-items: center;      justify-content: center;      min-height: 48px;      padding: 12px 20px;      border: 1px solid transparent;      border-radius: var(--radius-sm);      color: #ffffff;      background: var(--color-primary);      font-weight: 700;      cursor: pointer;      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;    }    .button:hover {      background: var(--color-primary-hover);    }    .button:active {      transform: translateY(1px);    }    .button--secondary {      color: var(--color-text);      border-color: var(--color-line);      background: transparent;    }    .button--secondary:hover {      color: var(--color-primary);      border-color: var(--color-primary);      background: #ffffff;    }    .hero {      padding: 76px 0 58px;      background:        linear-gradient(135deg, rgba(0, 109, 112, 0.11), transparent 48%),        linear-gradient(155deg, #f4efe5 0%, var(--color-bg) 55%, #dbeae5 100%);    }    .hero__grid {      display: grid;      grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);      align-items: center;      gap: 42px;    }    .eyebrow {      display: inline-block;      margin-bottom: 18px;      color: var(--color-primary);      font-size: 14px;      font-weight: 900;      letter-spacing: 0.09em;      text-transform: uppercase;    }    h1,    h2,    h3,    p {      margin-top: 0;    }    h1 {      max-width: 820px;      margin-bottom: 20px;      font-size: clamp(40px, 5.8vw, 68px);      font-weight: 900;      letter-spacing: -0.052em;      line-height: 1.02;    }    h2 {      margin-bottom: 14px;      font-size: clamp(30px, 4vw, 46px);      letter-spacing: -0.04em;      line-height: 1.08;    }    h3 {      margin-bottom: 8px;      font-size: 21px;      line-height: 1.2;    }    .hero__lead,    .section__lead {      max-width: 710px;      color: var(--color-text-muted);      font-size: 19px;    }    .hero__lead {      margin-bottom: 22px;    }    .price {      display: flex;      flex-wrap: wrap;      align-items: baseline;      gap: 10px;      margin: 24px 0;    }    .price__caption {      color: var(--color-text-muted);      font-size: 15px;      font-weight: 700;    }    .price__value {      color: var(--color-accent);      font-size: clamp(42px, 5vw, 58px);      font-weight: 900;      letter-spacing: -0.06em;      line-height: 1;    }    .hero__actions {      display: flex;      flex-wrap: wrap;      gap: 12px;    }    .notice {      margin: 15px 0 0;      color: var(--color-text-muted);      font-size: 14px;    }    .form-card {      padding: 30px;      border: 1px solid var(--color-line);      border-radius: var(--radius-lg);      background: var(--color-surface);      box-shadow: var(--shadow);    }    .form-card h2 {      margin-bottom: 8px;      font-size: 30px;    }    .form-card > p {      margin-bottom: 20px;      color: var(--color-text-muted);    }    .field {      display: grid;      gap: 6px;      margin-top: 14px;    }    label {      font-size: 14px;      font-weight: 700;    }    input,    select {      width: 100%;      min-height: 48px;      padding: 10px 12px;      border: 1px solid #b7c3be;      border-radius: var(--radius-sm);      outline: none;      background: #ffffff;    }    input:focus,    select:focus {      border-color: var(--color-primary);      box-shadow: 0 0 0 3px rgba(0, 109, 112, 0.16);    }    .form-card .button {      width: 100%;      margin-top: 20px;    }    .form-legal {      margin: 12px 0 0;      color: var(--color-text-muted);      font-size: 12px;      line-height: 1.45;    }    .advantages {      padding: 24px 0;      color: #eef6f3;      background: var(--color-dark);    }    .advantages__grid {      display: grid;      grid-template-columns: repeat(4, 1fr);      gap: 20px;    }    .advantage strong {      display: block;      margin-bottom: 3px;      color: #bce3da;      font-size: 23px;      line-height: 1.2;    }    .advantage span {      font-size: 15px;    }    .section {      padding: 78px 0;    }    .section--white {      background: var(--color-surface);    }    .section__lead {      margin-bottom: 32px;    }    .cards {      display: grid;      grid-template-columns: repeat(3, minmax(0, 1fr));      gap: 16px;    }    .card {      padding: 22px;      border: 1px solid var(--color-line);      border-radius: var(--radius-md);      background: var(--color-surface);    }    .section--white .card {      background: var(--color-bg);    }    .card p {      margin-bottom: 14px;      color: var(--color-text-muted);    }    .card__price {      color: var(--color-accent);      font-weight: 900;    }    .brands {      display: grid;      grid-template-columns: repeat(3, minmax(0, 1fr));      gap: 12px;      width: 100%;      margin-top: 28px;    }    .brand {      display: flex;      align-items: center;      justify-content: center;      min-width: 0;      height: 96px;      padding: 10px;      border: 1px solid #e5e7eb;      border-radius: 12px;      background: #ffffff;      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);    }    .brand img {      display: block;      width: 100%;      max-width: 100%;      height: 52px;      object-fit: contain;    }    .steps {      display: grid;      grid-template-columns: repeat(4, 1fr);      overflow: hidden;      border: 1px solid var(--color-line);      border-radius: var(--radius-md);    }    .step {      min-height: 225px;      padding: 24px;      border-right: 1px solid var(--color-line);      background: var(--color-surface);    }    .step:last-child {      border-right: 0;    }    .step__number {      display: block;      margin-bottom: 10px;      color: var(--color-primary);      font-size: 14px;      font-weight: 900;      letter-spacing: 0.08em;    }    .step p {      margin-bottom: 0;      color: var(--color-text-muted);    }    .cta-section {      padding: 76px 0;      color: #ffffff;      background: #145052;    }    .cta-section__grid {      display: grid;      grid-template-columns: 1fr auto;      align-items: center;      gap: 28px;    }    .cta-section h2 {      margin-bottom: 12px;    }    .cta-section p {      max-width: 680px;      margin-bottom: 0;      color: #d7e8e4;      font-size: 18px;    }    .cta-section .button {      color: #124648;      background: #ffffff;    }    .cta-section .button:hover {      color: #ffffff;      background: var(--color-dark);    }    footer {      padding: 32px 0 46px;      color: #d8e1de;      background: var(--color-dark);      font-size: 14px;    }    footer p {      margin-bottom: 8px;    }    .footer__company {      display: flex;      flex-wrap: wrap;      align-items: center;      gap: 8px 24px;      margin: 18px 0;      color: #ffffff;      font-size: 14px;      line-height: 1.45;    }    .footer__legal {      max-width: 960px;      color: #aebbb6;      font-size: 13px;    }    @media (max-width: 860px) {      .hero {        padding-top: 52px;      }      .hero__grid {        grid-template-columns: 1fr;      }      .advantages__grid,      .cards {        grid-template-columns: repeat(2, 1fr);      }      .brands {      display: grid;      grid-template-columns: repeat(3, minmax(0, 1fr));      gap: 12px;      width: 100%;      margin-top: 28px;    }    @media (max-width: 560px) {      .container {        width: min(100% - 24px, 1160px);      }      .topbar__inner {        justify-content: center;        text-align: center;      }      .topbar__inner span:last-child,      .header .button {        display: none;      }      .header__inner {        min-height: 64px;      }      .phone {        font-size: 14px;      }      .hero {        padding: 44px 0;      }      h1 {        font-size: 39px;      }      .hero__lead,      .section__lead {        font-size: 17px;      }      .form-card {        padding: 22px;      }      .advantages__grid,      .cards,      .steps {        grid-template-columns: 1fr;      }      .advantages__grid {        gap: 16px;      }      .brands {      display: grid;      grid-template-columns: repeat(3, minmax(0, 1fr));      gap: 12px;      width: 100%;      margin-top: 28px;    }  /* Responsive layout: shared rules for service landings */  @media (max-width: 1024px) {    .container {      width: min(100% - 40px, 1120px);    }    .hero__grid,    .split,    .contact-grid {      grid-template-columns: 1fr;    }    .hero__content {      max-width: 760px;    }    .hero__card {      max-width: 760px;    }    .cards,    .problems,    .brands,    .steps {      grid-template-columns: repeat(2, minmax(0, 1fr));    }  }  @media (max-width: 768px) {    html {      scroll-behavior: smooth;    }    body {      overflow-x: hidden;    }    .container {      width: min(100% - 32px, 1120px);    }    header,    .header,    .site-header {      position: relative;    }    .header__inner,    .nav,    .header__actions {      flex-wrap: wrap;      gap: 12px;    }    .nav {      width: 100%;      order: 3;    }    .nav a {      padding: 10px 0;    }    .hero {      padding-top: 56px;      padding-bottom: 56px;    }    .hero__grid {      gap: 28px;    }    .hero h1,    h1 {      font-size: clamp(2rem, 9vw, 3.25rem);      line-height: 1.08;    }    h2 {      font-size: clamp(1.55rem, 6vw, 2.3rem);      line-height: 1.15;    }    .hero__lead,    .section-lead {      font-size: 1rem;      line-height: 1.6;    }    .hero__actions,    .form-actions,    .cta__actions {      flex-direction: column;      align-items: stretch;    }    .hero__actions .button,    .hero__actions a,    .form-actions .button,    .cta__actions .button {      width: 100%;      justify-content: center;      text-align: center;    }    .cards,    .problems,    .brands,    .steps,    .features,    .footer__grid {      grid-template-columns: 1fr;    }    .card,    .problem,    .step,    .feature {      min-width: 0;    }    .hero__card,    .form-card,    .cta-card {      padding: 24px;    }    input,    select,    textarea,    button {      font-size: 16px;    }    table {      display: block;      width: 100%;      overflow-x: auto;      white-space: nowrap;    }  }  @media (max-width: 480px) {    .container {      width: min(100% - 24px, 1120px);    }    .hero {      padding-top: 40px;      padding-bottom: 40px;    }    .hero h1,    h1 {      font-size: 2rem;    }    h2 {      font-size: 1.5rem;    }    section {      padding-top: 48px;      padding-bottom: 48px;    }    .hero__card,    .form-card,    .cta-card,    .card,    .problem,    .step,    .feature {      border-radius: 16px;    }    .hero__card,    .form-card,    .cta-card {      padding: 20px;    }  }
-        /* Rizograph desktop logo grid */
-    @media (min-width: 769px) {
-      .rizograph-brands {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-        max-width: 860px;
-      }
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006d70">
+  <meta name="robots" content="index,follow">
 
-      .rizograph-brands .brand {
-        height: 132px;
-        padding: 18px;
-      }
+  <title>Ремонт ризографов в Москве за один день — АСТ-ПРИНТ</title>
+  <meta name="description" content="Ремонт ризографов в Москве за один день: бесплатный выезд в пределах МКАД, осмотр в течение часа, диагностика от 2 500 ₽, гарантия на все работы.">
+  <link rel="canonical" href="https://remont-rizografov.act-print.ru/">
 
-      .rizograph-brands .brand img {
-        display: block;
-        width: 100%;
-        max-width: 210px;
-        height: 100%;
-        max-height: 88px;
-        margin: 0 auto;
-        object-fit: contain;
-      }
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="АСТ-ПРИНТ">
+  <meta property="og:title" content="Ремонт ризографов в Москве за один день — АСТ-ПРИНТ">
+  <meta property="og:description" content="Бесплатный выезд в пределах МКАД, осмотр в течение часа, ремонт ризографов за один день и гарантия на все работы.">
+  <meta property="og:url" content="https://remont-rizografov.act-print.ru/">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" type="image/png" sizes="100x100" href="../favicon.png">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Ремонт ризографов в Москве",
+    "description": "Диагностика, инсталляция, ремонт и сервисное обслуживание ризографов в Москве с бесплатным выездом в пределах МКАД и гарантией на все работы.",
+    "url": "https://remont-rizografov.act-print.ru/",
+    "serviceType": "Ремонт ризографов",
+    "provider": {
+      "@type": "Organization",
+      "name": "АСТ-ПРИНТ",
+      "url": "https://act-print.ru/",
+      "telephone": "+7-495-205-37-38",
+      "email": "info@act-print.ru"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Москва"
     }
-/* Rizograph brand logo grid */
-    @media (max-width: 640px) {
-      .brands {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
+  }
+  </script>
 
-      .brand {
-        min-width: 0;
-        min-height: 0;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        padding: 14px;
-      }
+  <style>
+    :root {
+      --color-bg: #f6f6f2;
+      --color-surface: #ffffff;
+      --color-text: #202826;
+      --color-text-muted: #58635f;
+      --color-line: #d6ddd9;
+      --color-primary: #006d70;
+      --color-primary-hover: #004f52;
+      --color-accent: #b85d17;
+      --color-dark: #202925;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow: 0 18px 45px rgba(29, 43, 38, .10);
+    }
 
-      .brand img {
-        display: block;
-        width: 100%;
-        max-width: 132px;
-        height: 100%;
-        max-height: none;
-        margin: 0 auto;
-        object-fit: contain;
-      }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+    body {
+      min-width: 0;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--color-text);
+      background: var(--color-bg);
+      font-family: "Satoshi", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 32px)); margin-inline: auto; }
+
+    .topbar {
+      padding: 10px 0;
+      color: #e9f0ed;
+      background: var(--color-dark);
+      font-size: 14px;
+    }
+
+    .topbar__inner, .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--color-line);
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(12px);
+    }
+
+    .header__inner { min-height: 76px; }
+    .logo { display: inline-flex; align-items: center; min-width: 0; }
+
+    .logo img {
+      display: block;
+      width: 180px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .phone { margin-left: auto; font-weight: 700; white-space: nowrap; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      background: var(--color-primary);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+    }
+
+    .button:hover { background: var(--color-primary-hover); }
+    .button:active { transform: translateY(1px); }
+
+    .button--secondary {
+      color: var(--color-text);
+      border-color: var(--color-line);
+      background: transparent;
+    }
+
+    .button--secondary:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background: #ffffff;
+    }
+
+    .hero {
+      padding: 76px 0 58px;
+      background:
+        linear-gradient(135deg, rgba(0, 109, 112, .11), transparent 48%),
+        linear-gradient(155deg, #f4efe5 0%, var(--color-bg) 55%, #dbeae5 100%);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(320px, .72fr);
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5.8vw, 68px);
+      font-weight: 900;
+      letter-spacing: -.052em;
+      line-height: 1.02;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+
+    h3 { margin-bottom: 8px; font-size: 21px; line-height: 1.2; }
+
+    .hero__lead, .section__lead {
+      max-width: 760px;
+      color: var(--color-text-muted);
+      font-size: 19px;
+    }
+
+    .hero__lead { margin-bottom: 22px; }
+
+    .price {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .price__caption { color: var(--color-text-muted); font-size: 15px; font-weight: 700; }
+
+    .price__value {
+      color: var(--color-accent);
+      font-size: clamp(42px, 5vw, 58px);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .notice { margin: 15px 0 0; color: var(--color-text-muted); font-size: 14px; }
+
+    .form-card {
+      min-width: 0;
+      padding: 30px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h2 { margin-bottom: 8px; font-size: 30px; }
+    .form-card > p { margin-bottom: 20px; color: var(--color-text-muted); }
+    .field { display: grid; gap: 6px; margin-top: 14px; }
+    label { font-size: 14px; font-weight: 700; }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid #b7c3be;
+      border-radius: var(--radius-sm);
+      outline: none;
+      background: #ffffff;
+    }
+
+    textarea { min-height: 84px; resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 109, 112, .16);
+    }
+
+    .form-card .button { width: 100%; margin-top: 20px; }
+    .form-legal { margin: 12px 0 0; color: var(--color-text-muted); font-size: 12px; line-height: 1.45; }
+
+    .advantages { padding: 24px 0; color: #eef6f3; background: var(--color-dark); }
+
+    .advantages__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .advantage strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #bce3da;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .advantage span { font-size: 15px; }
+    .section { padding: 78px 0; }
+    .section--white { background: var(--color-surface); }
+    .section__lead { margin-bottom: 32px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .section--white .card { background: var(--color-bg); }
+    .card p { margin-bottom: 0; color: var(--color-text-muted); }
+    .card__price { color: var(--color-accent); font-weight: 900; }
+
+    .price-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .price-table { width: 100%; border-collapse: collapse; }
+
+    .price-table th, .price-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--color-line);
+      text-align: left;
+    }
+
+    .price-table th {
+      color: var(--color-text-muted);
+      background: var(--color-bg);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .price-table td:last-child { color: var(--color-accent); font-weight: 900; white-space: nowrap; }
+    .price-table tr:last-child td { border-bottom: 0; }
+
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+      margin-top: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      height: 132px;
+      padding: 18px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, .05);
+    }
+
+    .brand img {
+      display: block;
+      width: 100%;
+      max-width: 210px;
+      height: 88px;
+      object-fit: contain;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+    }
+
+    .step {
+      min-width: 0;
+      min-height: 236px;
+      padding: 22px;
+      border-right: 1px solid var(--color-line);
+      background: var(--color-surface);
+    }
+
+    .step:last-child { border-right: 0; }
+
+    .step__number {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .step p { margin-bottom: 0; color: var(--color-text-muted); }
+
+    .cta-section { padding: 76px 0; color: #ffffff; background: #145052; }
+
+    .cta-section__grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .cta-section h2 { margin-bottom: 12px; }
+
+    .cta-section p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: #d7e8e4;
+      font-size: 18px;
+    }
+
+    .cta-section .button { color: #124648; background: #ffffff; }
+    .cta-section .button:hover { color: #ffffff; background: var(--color-dark); }
+
+    footer { padding: 32px 0 46px; color: #d8e1de; background: var(--color-dark); font-size: 14px; }
+    footer p { margin-bottom: 8px; }
+
+    .footer__company {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 24px;
+      margin: 18px 0;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .footer__legal { max-width: 960px; color: #aebbb6; font-size: 13px; }
+
+    @media (max-width: 1024px) {
+      .container { width: min(100% - 40px, 1120px); }
+      .hero__grid { grid-template-columns: 1fr; }
+      .advantages__grid, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .brands { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .step:nth-child(3) { border-right: 0; }
+      .step:nth-child(4), .step:nth-child(5) { border-top: 1px solid var(--color-line); }
+    }
+
+    @media (max-width: 768px) {
+      .container { width: min(100% - 32px, 1120px); }
+      .header { position: relative; }
+      .hero { padding-top: 56px; padding-bottom: 56px; }
+      .hero__grid { gap: 28px; }
+      .hero__actions { flex-direction: column; align-items: stretch; }
+      .hero__actions .button { width: 100%; }
     }
 
     @media (min-width: 481px) and (max-width: 640px) {
-      .brands {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .brand {
-        padding: 12px;
-      }
+      .brands { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .brand { height: auto; aspect-ratio: 1 / 1; padding: 12px; }
+      .brand img { height: 100%; max-height: none; }
     }
-  </style>  <script type="application/ld+json">{  "@context": "https://schema.org",  "@type": "LocalBusiness",  "name": "АСТ-ПРИНТ",  "url": "https://remont-rizografov.act-print.ru/",  "telephone": "+7-495-205-37-38",  "email": "info@act-print.ru",  "areaServed": {    "@type": "City",    "name": "Москва"  },  "description": "Сервисный центр АСТ-ПРИНТ: услуги по ремонту, обслуживанию и сопровождению оргтехники в Москве."}</script>  <link rel="icon" type="image/png" sizes="100x100" href="../favicon.png">  <title>Ремонт ризографов в Москве — АСТ-ПРИНТ</title>  <meta name="description" content="Ремонт ризографов в Москве. Укажите модель, код ошибки и симптомы при печати или подаче бумаги.">  <meta name="robots" content="index,follow">  <link rel="canonical" href="https://remont-rizografov.act-print.ru/">  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ru_RU">  <meta property="og:site_name" content="АСТ-ПРИНТ">  <meta property="og:title" content="Ремонт ризографов в Москве — АСТ-ПРИНТ">  <meta property="og:description" content="Ремонт ризографов в Москве. Укажите модель, код ошибки и симптомы при печати или подаче бумаги.">  <meta property="og:url" content="https://remont-rizografov.act-print.ru/">  <meta name="twitter:card" content="summary">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Ремонт ризографов в Москве","description":"Диагностика, обслуживание и ремонт ризографов в Москве.","url":"https://remont-rizografov.act-print.ru/","serviceType":"Ремонт ризографов в Москве","provider":{"@type":"Organization","name":"АСТ-ПРИНТ","url":"https://act-print.ru/","telephone":"+7-495-205-37-38","email":"info@act-print.ru"},"areaServed":{"@type":"City","name":"Москва"}}</script></head><body>  <div class="topbar">    <div class="container topbar__inner">      <span>Сервисный центр АСТ-ПРИНТ · Москва и Московская область</span>      <span>Диагностика · Ремонт</span>    </div>  </div>  <header class="header">    <div class="container header__inner">      <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт">  <img src="../act-print-logo.png" alt="АСТ-ПРИНТ" width="180" height="48"></a>      <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>      <a class="button" href="#request">Оставить заявку</a>    </div>  </header>  <main>    <section class="hero">      <div class="container hero__grid">        <div>          <span class="eyebrow">Ремонт ризографов в Москве</span>          <h1>Ремонт ризографов в Москве</h1>          <p class="hero__lead">            Проводим диагностику и ремонт ризографов. Укажите модель и симптомы — согласуем состав работ и стоимость до начала ремонта.          </p>          <div class="price">            <span class="price__caption">Диагностика ризографа</span>            <strong class="price__value">от 2 500 ₽</strong>          </div>          <div class="hero__actions">            <a class="button" href="#request">Оставить заявку</a>            <a class="button button--secondary" href="#problems">Посмотреть работы и цены</a>          </div>          <p class="notice">            Стоимость зависит от категории работ. Детали, узлы и расходные материалы оплачиваются отдельно.          </p>        </div>        <aside class="form-card" id="request">          <h2>Нужен ремонт ризографа?</h2>          <p>Оставьте контакты — уточним модель и симптомы оборудования.</p>          <form action="#" method="post">            <div class="field">              <label for="name">Имя</label>              <input id="name" name="name" type="text" autocomplete="name" required>            </div>            <div class="field">              <label for="phone">Телефон</label>              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___‑__‑__" required>            </div>            <div class="field">              <label for="problem">Модель или проблема</label>              <select id="problem" name="problem">                <option>Не включается или показывает ошибку</option>                <option>Проблема с подачей бумаги</option>                <option>Замятие бумаги</option>                <option>Дефекты печати или нужна калибровка</option>                <option>Проблема с барабаном</option>                <option>Другая неисправность</option>              </select>            </div>            <button class="button" type="submit">Получить консультацию</button>          </form>          <p class="form-legal">            Отправляя форму, вы соглашаетесь на обработку данных для связи по заявке.          </p>        </aside>      </div>    </section>    <section class="section" id="problems">      <div class="container">        <h2>Работы и цены по ремонту ризографов</h2>        <p class="section__lead">          Категорию ремонта определяют после диагностики. Стоимость деталей, агрегатов и расходных материалов в цену работ не входит.        </p>        <div class="cards">          <article class="card">            <h3>Диагностика</h3>            <p>Определяем неисправность и необходимый объём работ по ризографу.</p>            <strong class="card__price">от 2 500 ₽</strong>          </article>          <article class="card">            <h3>Ремонт 1 категории</h3>            <p>Стоимость работ определяется по результатам диагностики.</p>            <strong class="card__price">от 3 500 ₽</strong>          </article>          <article class="card">            <h3>Ремонт 2 категории</h3>            <p>Стоимость работ определяется по результатам диагностики.</p>            <strong class="card__price">от 5 000 ₽</strong>          </article>          <article class="card">            <h3>Ремонт 3 категории</h3>            <p>Стоимость работ определяется по результатам диагностики.</p>            <strong class="card__price">от 6 000 ₽</strong>          </article>          <article class="card">            <h3>Подача бумаги и замятия</h3>            <p>Проверяем подающие механизмы, ролики, датчики и тракт бумаги.</p>            <strong class="card__price">После диагностики</strong>          </article>          <article class="card">            <h3>Дефекты печати и калибровка</h3>            <p>Проверяем барабан, качество печати и настройки оборудования.</p>            <strong class="card__price">После диагностики</strong>          </article>        </div>      </div>    </section>    <section class="section section--white">
+
+    @media (max-width: 640px) {
+      .price-table-wrap { overflow: visible; border: 0; border-radius: 0; background: transparent; }
+      .price-table { display: block; border: 0; }
+      .price-table thead { display: none; }
+      .price-table tbody { display: grid; gap: 10px; }
+      .price-table tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-surface); }
+      .price-table td { display: block; padding: 0; border: 0; }
+      .price-table td:first-child { min-width: 0; color: var(--color-text); font-size: 15px; line-height: 1.35; }
+      .price-table td:last-child { color: var(--color-accent); font-size: 16px; text-align: right; white-space: nowrap; }
+      .steps { grid-template-columns: 1fr; overflow: visible; }
+      .step, .step:nth-child(3) { min-height: 0; border-right: 0; border-top: 0; border-bottom: 1px solid var(--color-line); }
+      .step:last-child { border-bottom: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 24px, 1160px); }
+      .topbar__inner { justify-content: center; text-align: center; }
+      .topbar__inner span:last-child, .header .button { display: none; }
+      .header__inner { min-height: 64px; }
+      .logo img { width: 150px; height: 40px; }
+      .phone { font-size: 14px; }
+      .hero { padding: 44px 0; }
+      h1 { font-size: 39px; }
+      .hero__lead, .section__lead { font-size: 17px; }
+      .form-card { padding: 22px; }
+      .advantages__grid, .cards { grid-template-columns: 1fr; }
+      .advantages__grid { gap: 16px; }
+      .cta-section__grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .brand { min-height: 0; height: auto; aspect-ratio: 1 / 1; padding: 14px; }
+      .brand img { height: 100%; max-height: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Сервисный центр АСТ-ПРИНТ · Москва</span>
+      <span>Диагностика · Ремонт · Инсталляция</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт">
+        <img src="../act-print-logo.png" alt="АСТ-ПРИНТ" width="180" height="48">
+      </a>
+      <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>
+      <a class="button" href="#request">Оставить заявку</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="eyebrow">Ремонт ризографов в Москве</span>
+          <h1>Ремонт ризографов в Москве за один день</h1>
+          <p class="hero__lead">АСТ‑ПРИНТ выполняет диагностику, ремонт, инсталляцию и сервисное обслуживание ризографов. Ризограф — оборудование для трафаретной печати, также известное как дупликатор; оно используется в коммерческих и образовательных организациях.</p>
+          <div class="price">
+            <span class="price__caption">Диагностика ризографа</span>
+            <strong class="price__value">от 2 500 ₽</strong>
+          </div>
+          <div class="hero__actions">
+            <a class="button" href="#request">Оставить заявку</a>
+            <a class="button button--secondary" href="#prices">Посмотреть цены</a>
+          </div>
+          <p class="notice">Выезд мастера в пределах МКАД бесплатный. Осмотр возможен в офисе или по удобному адресу в течение часа после принятия заказа.</p>
+        </div>
+
+        <aside class="form-card" id="request">
+          <h2>Нужен ремонт ризографа?</h2>
+          <p>Оставьте контакты — уточним модель, код ошибки и симптомы оборудования.</p>
+          <form action="#request" method="post">
+            <div class="field"><label for="name">Имя</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___‑__‑__" required></div>
+            <div class="field">
+              <label for="problem">Что случилось?</label>
+              <select id="problem" name="problem">
+                <option>Рисунок растягивается или сужается</option>
+                <option>Медленно реагирует на команды</option>
+                <option>Посторонние звуки при работе</option>
+                <option>Зависает или застревает бумага</option>
+                <option>Ризограф не включается</option>
+                <option>Другая неисправность</option>
+              </select>
+            </div>
+            <div class="field"><label for="model">Марка и модель ризографа</label><textarea id="model" name="model" placeholder="Укажите модель, код ошибки и описание проблемы"></textarea></div>
+            <button class="button" type="submit">Получить консультацию</button>
+          </form>
+          <p class="form-legal">Отправляя форму, вы соглашаетесь на обработку данных для связи по заявке.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="advantages" aria-label="Условия ремонта ризографов">
+      <div class="container advantages__grid">
+        <div class="advantage"><strong>Бесплатный выезд</strong><span>мастера в пределах МКАД</span></div>
+        <div class="advantage"><strong>До 1 часа</strong><span>осмотр после принятия заказа</span></div>
+        <div class="advantage"><strong>За один день</strong><span>ремонт ризографов в Москве</span></div>
+        <div class="advantage"><strong>Гарантия</strong><span>на все выполненные работы</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="prices">
       <div class="container">
-        <h2>Марки ризографов, с которыми работаем</h2>
-
-        <p class="section__lead">
-          Укажите марку и модель при обращении, чтобы уточнить возможный состав работ.
-        </p>
-
-        <div class="brands rizograph-brands" aria-label="Марки ризографов">
-          <div class="brand"><img src="../brands/remont-rizografov/riso.jpg" alt="RISO" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-rizografov/rex-rotary.jpg" alt="Rex-Rotary" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-rizografov/ricoh.jpg" alt="Ricoh" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-rizografov/duplo.jpg" alt="Duplo" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-rizografov/nashuatec.jpg" alt="Nashuatec" loading="lazy"></div>
-          <div class="brand"><img src="../brands/remont-rizografov/gestetner.jpg" alt="Gestetner" loading="lazy"></div>
+        <h2>Цены на ремонт ризографов</h2>
+        <p class="section__lead">Стоимость деталей, узлов и расходных материалов в цену работ не входит. Категория ремонта определяется после диагностики.</p>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead><tr><th scope="col">Работа</th><th scope="col">Цена</th></tr></thead>
+            <tbody>
+              <tr><td>Выезд мастера в пределах МКАД</td><td>Бесплатно</td></tr>
+              <tr><td>Диагностика</td><td>от 2 500 ₽</td></tr>
+              <tr><td>Инсталляция</td><td>от 5 000 ₽</td></tr>
+              <tr><td>Ремонт 1-й категории</td><td>от 3 500 ₽</td></tr>
+              <tr><td>Ремонт 2-й категории</td><td>от 5 000 ₽</td></tr>
+              <tr><td>Ремонт 3-й категории</td><td>от 6 000 ₽</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </section>    <section class="section">      <div class="container">        <h2>Как проходит ремонт ризографа</h2>        <div class="steps">          <article class="step">            <span class="step__number">01</span>            <h3>Оставляете заявку</h3>            <p>Сообщаете марку, модель ризографа и симптомы неисправности.</p>          </article>          <article class="step">            <span class="step__number">02</span>            <h3>Проводим диагностику</h3>            <p>Определяем неисправность и категорию необходимых работ.</p>          </article>          <article class="step">            <span class="step__number">03</span>            <h3>Согласовываем стоимость</h3>            <p>Уточняем цену работ и необходимость деталей до ремонта.</p>          </article>          <article class="step">            <span class="step__number">04</span>            <h3>Выполняем ремонт и проверку</h3>            <p>Проверяем работу оборудования после выполненных работ.</p>          </article>        </div>      </div>    </section>    <section class="cta-section">      <div class="container cta-section__grid">        <div>          <h2>Нужен ремонт ризографа?</h2>          <p>Оставьте заявку — уточним модель и симптомы, расскажем о дальнейших действиях.</p>        </div>        <a class="button" href="#request">Оставить заявку</a>      </div>    </section>  </main>  <footer>    <div class="container">      <p>© АСТ-ПРИНТ. Ремонт и обслуживание оргтехники в Москве.</p>      <div class="footer__company">        <span>© 2026 ООО «АСТ-ПРИНТ»</span>        <span>Аккредитованная IT‑компания</span>        <span>ИНН 9709091910 │ ОГРН 1237700213387</span>      </div>      <p class="footer__legal">        Наименования брендов используются исключительно для идентификации обслуживаемого оборудования. Все товарные знаки и логотипы принадлежат соответствующим правообладателям. Сайт не заявляет об авторизации производителя, если это не указано отдельно.      </p>    </div>  </footer></body></html>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <h2>Сервисное обслуживание ризографов</h2>
+        <p class="section__lead">Профилактический осмотр рекомендуется проводить раз в месяц или раз в квартал — в зависимости от нагрузки на оборудование.</p>
+        <div class="cards">
+          <article class="card"><h3>Очистка подачи бумаги</h3><p>Очищаем блок подачи бумаги и удаляем накопившиеся загрязнения.</p></article>
+          <article class="card"><h3>Удаление остатков краски</h3><p>Проверяем узлы и удаляем остатки краски, влияющие на качество печати.</p></article>
+          <article class="card"><h3>Картриджи и износ деталей</h3><p>Устанавливаем или заправляем картриджи, выявляем изнашиваемые детали.</p></article>
+          <article class="card"><h3>Проверка и настройка</h3><p>Проверяем и настраиваем печать после сервисных работ.</p></article>
+          <article class="card"><h3>Осмотр основных узлов</h3><p>При ремонте осматриваем основные элементы оборудования и очищаем рабочие зоны.</p></article>
+          <article class="card"><h3>Восстановление механизмов</h3><p>При необходимости заменяем или восстанавливаем резиновые детали и повреждённые механизмы.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problems">
+      <div class="container">
+        <h2>Когда нужна диагностика ризографа</h2>
+        <p class="section__lead">Обратитесь к специалисту, если работа ризографа изменилась или оборудование перестало выполнять печать в обычном режиме.</p>
+        <div class="cards">
+          <article class="card"><h3>Искажается рисунок</h3><p>Изображение растягивается или сужается при печати.</p></article>
+          <article class="card"><h3>Медленная реакция</h3><p>Оборудование медленно реагирует на команды.</p></article>
+          <article class="card"><h3>Посторонние звуки</h3><p>Во время работы появляются необычные шумы.</p></article>
+          <article class="card"><h3>Зависает бумага</h3><p>Бумага застревает или процесс печати зависает.</p></article>
+          <article class="card"><h3>Не включается</h3><p>Ризограф не запускается или не реагирует на включение.</p></article>
+          <article class="card"><h3>Требуется инсталляция</h3><p>Нужна установка и настройка оборудования для дальнейшей работы.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="brands">
+      <div class="container">
+        <h2>Марки ризографов, с которыми работаем</h2>
+        <p class="section__lead">Укажите марку и модель при обращении, чтобы уточнить возможный состав работ.</p>
+        <div class="brands" aria-label="Марки ризографов">
+          <div class="brand"><img src="../brands/remont-rizografov/riso.jpg" alt="RISO" width="210" height="88" loading="lazy"></div>
+          <div class="brand"><img src="../brands/remont-rizografov/rex-rotary.jpg" alt="Rex-Rotary" width="210" height="88" loading="lazy"></div>
+          <div class="brand"><img src="../brands/remont-rizografov/ricoh.jpg" alt="Ricoh" width="210" height="88" loading="lazy"></div>
+          <div class="brand"><img src="../brands/remont-rizografov/duplo.jpg" alt="Duplo" width="210" height="88" loading="lazy"></div>
+          <div class="brand"><img src="../brands/remont-rizografov/nashuatec.jpg" alt="Nashuatec" width="210" height="88" loading="lazy"></div>
+          <div class="brand"><img src="../brands/remont-rizografov/gestetner.jpg" alt="Gestetner" width="210" height="88" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Как проходит ремонт ризографа</h2>
+        <div class="steps">
+          <article class="step"><span class="step__number">01</span><h3>Оставляете заявку</h3><p>Сообщаете марку, модель ризографа, код ошибки и симптомы неисправности.</p></article>
+          <article class="step"><span class="step__number">02</span><h3>Проводим осмотр</h3><p>Мастер приезжает в офис или по удобному адресу и проводит диагностику оборудования.</p></article>
+          <article class="step"><span class="step__number">03</span><h3>Согласовываем работы</h3><p>Определяем категорию ремонта, стоимость деталей и состав необходимых работ.</p></article>
+          <article class="step"><span class="step__number">04</span><h3>Ремонтируем и настраиваем</h3><p>Очищаем узлы, восстанавливаем или заменяем детали, настраиваем печать.</p></article>
+          <article class="step"><span class="step__number">05</span><h3>Проверяем и гарантируем</h3><p>Проверяем работу ризографа после ремонта и предоставляем гарантию на все работы.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-section__grid">
+        <div><h2>Нужен ремонт или обслуживание ризографа?</h2><p>Оставьте заявку — уточним модель, код ошибки и симптомы, чтобы организовать осмотр оборудования.</p></div>
+        <a class="button" href="#request">Оставить заявку</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© АСТ-ПРИНТ. Ремонт, инсталляция и сервисное обслуживание ризографов в Москве.</p>
+      <div class="footer__company"><span>© 2026 ООО «АСТ-ПРИНТ»</span><span>Аккредитованная IT‑компания</span><span>ИНН 9709091910 │ ОГРН 1237700213387</span></div>
+      <p class="footer__legal">Оплата возможна наличными или банковским переводом. Наименования брендов используются исключительно для идентификации обслуживаемого оборудования. Все товарные знаки и логотипы принадлежат соответствующим правообладателям. Сайт не заявляет об авторизации производителя, если это не указано отдельно.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('form').forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var button = form.querySelector('button[type="submit"]');
+        if (button) {
+          button.textContent = 'Заявка принята ✔';
+          button.disabled = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
