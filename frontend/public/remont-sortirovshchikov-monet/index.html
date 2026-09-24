@@ -506,38 +506,30 @@
       background: var(--color-accent);
     }
 
-    .footer {
-      padding: 36px 0;
-      color: #d4dfda;
-      background: #151c19;
+    footer {
+      padding: 32px 0 46px;
+      color: #d8e1de;
+      background: var(--color-dark);
+      font-size: 14px;
     }
 
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-    }
-
-    .footer__title {
-      margin-bottom: 8px;
-      color: #ffffff;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-
-    .footer p {
+    footer p {
       margin-bottom: 8px;
     }
 
-    .footer a {
+    .footer__company {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 24px;
+      margin: 18px 0;
       color: #ffffff;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .footer__legal {
       max-width: 960px;
-      margin-top: 18px;
       color: #aebbb6;
       font-size: 13px;
     }
@@ -569,9 +561,6 @@
         flex-direction: column;
       }
 
-      .footer__grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 640px) {
@@ -897,24 +886,15 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <div class="footer__grid">
-        <div>
-          <p class="footer__title">АСТ‑ПРИНТ</p>
-          <p>Сервисное обслуживание и ремонт оргтехники и банковского оборудования в Москве.</p>
-          <p><a href="https://act-print.ru/">act-print.ru</a></p>
-        </div>
-
-        <div>
-          <p><a href="tel:+74952053738">+7 (495) 205-37-38</a></p>
-          <p><a href="mailto:info@act-print.ru">info@act-print.ru</a></p>
-        </div>
+      <p>&copy; АСТ-ПРИНТ. Ремонт и сервисное обслуживание банковского оборудования в Москве.</p>
+      <div class="footer__company">
+        <span>&copy; 2026 ООО &laquo;АСТ-ПРИНТ&raquo;</span>
+        <span>Аккредитованная IT&#8209;компания</span>
+        <span>ИНН 9709091910 &#9474; ОГРН 1237700213387</span>
       </div>
-
-      <p class="footer__legal">
-        Наименования производителей и товарные знаки принадлежат их правообладателям и используются только для идентификации совместимого оборудования.
-      </p>
+      <p class="footer__legal">Наименования брендов используются исключительно для идентификации обслуживаемого оборудования. Все товарные знаки и логотипы принадлежат соответствующим правообладателям. Сайт не заявляет об авторизации производителя, если это не указано отдельно.</p>
     </div>
   </footer>
 
