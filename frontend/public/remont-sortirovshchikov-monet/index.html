@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006d70">
+  <meta name="robots" content="index,follow">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <title>Ремонт сортировщиков монет в Москве от 3 000 ₽ | АСТ‑ПРИНТ</title>
+  <meta name="description" content="Ремонт и техническое обслуживание сортировщиков монет в Москве. Диагностика при ремонте бесплатно, выезд в пределах МКАД бесплатно. Ремонт от 3 000 ₽.">
+
+  <link rel="canonical" href="https://remont-sortirovshchikov-monet.act-print.ru/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="АСТ‑ПРИНТ">
+  <meta property="og:title" content="Ремонт сортировщиков монет в Москве от 3 000 ₽ — АСТ‑ПРИНТ">
+  <meta property="og:description" content="Диагностика при ремонте бесплатно. Выезд мастера в пределах МКАД бесплатно. Ремонт сортировщиков монет от 3 000 ₽.">
+  <meta property="og:url" content="https://remont-sortirovshchikov-monet.act-print.ru/">
+  <meta name="twitter:card" content="summary">
+
+  <script id="seo-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Ремонт сортировщиков монет в Москве",
+    "description": "Ремонт и техническое обслуживание сортировщиков монет в Москве. Диагностика при ремонте бесплатна, выезд в пределах МКАД бесплатен. Ремонт от 3 000 рублей.",
+    "url": "https://remont-sortirovshchikov-monet.act-print.ru/",
+    "serviceType": "Ремонт сортировщиков монет",
+    "provider": {
+      "@type": "Organization",
+      "name": "АСТ-ПРИНТ",
+      "url": "https://act-print.ru/",
+      "telephone": "+7-495-205-37-38",
+      "email": "info@act-print.ru"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Москва"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="100x100" href="favicon.png">
+
+  <style>
+    :root {
+      --color-bg: #f6f6f2;
+      --color-surface: #ffffff;
+      --color-text: #202826;
+      --color-text-muted: #58635f;
+      --color-line: #d6ddd9;
+      --color-primary: #006d70;
+      --color-primary-hover: #004f52;
+      --color-accent: #b85d17;
+      --color-dark: #202925;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow: 0 18px 45px rgba(29, 43, 38, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--color-text);
+      background: var(--color-bg);
+      font-family: "Satoshi", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      padding: 10px 0;
+      color: #e9f0ed;
+      background: var(--color-dark);
+      font-size: 14px;
+    }
+
+    .topbar__inner,
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--color-line);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .header__inner {
+      min-height: 76px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .logo img {
+      display: block;
+      width: 180px;
+      max-width: 100%;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .phone {
+      margin-left: auto;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      background: var(--color-primary);
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .button:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    .button--secondary {
+      color: var(--color-text);
+      border-color: var(--color-line);
+      background: transparent;
+    }
+
+    .button--secondary:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background: #ffffff;
+    }
+
+    .hero {
+      padding: 76px 0 58px;
+      background:
+        linear-gradient(135deg, rgba(0, 109, 112, 0.11), transparent 48%),
+        linear-gradient(155deg, #f4efe5 0%, var(--color-bg) 55%, #dbeae5 100%);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5.8vw, 68px);
+      font-weight: 900;
+      letter-spacing: -0.052em;
+      line-height: 1.02;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .hero__lead,
+    .section__lead {
+      color: var(--color-text-muted);
+      font-size: 19px;
+    }
+
+    .hero__lead {
+      max-width: 710px;
+      margin-bottom: 26px;
+    }
+
+    .section__lead {
+      max-width: none;
+      margin-bottom: 32px;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .price {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 26px;
+      padding-left: 16px;
+      border-left: 4px solid var(--color-accent);
+    }
+
+    .price__caption {
+      color: var(--color-text-muted);
+      font-size: 14px;
+    }
+
+    .price__value {
+      font-size: 32px;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .form-card {
+      min-width: 0;
+      padding: 28px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h2 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .form-card p {
+      margin-bottom: 20px;
+      color: var(--color-text-muted);
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-sm);
+      color: var(--color-text);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 109, 112, 0.12);
+    }
+
+    .form-card .button {
+      width: 100%;
+    }
+
+    .form-note {
+      margin: 12px 0 0;
+      color: var(--color-text-muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section--white {
+      background: var(--color-surface);
+    }
+
+    .section--muted {
+      background: #edf3ef;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+    }
+
+    .price-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .price-item {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .price-item strong {
+      color: var(--color-primary);
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .price-item span {
+      color: var(--color-text-muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .step {
+      min-width: 0;
+      min-height: 210px;
+      padding: 22px;
+      border-right: 1px solid var(--color-line);
+    }
+
+    .step:last-child {
+      border-right: 0;
+    }
+
+    .step__number {
+      display: block;
+      margin-bottom: 32px;
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+    }
+
+    .notice {
+      padding: 22px;
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: #fff8f2;
+      color: #5e371a;
+    }
+
+    .notice p {
+      margin-bottom: 0;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .faq details {
+      padding: 18px 20px;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .faq p {
+      margin: 12px 0 0;
+      color: var(--color-text-muted);
+    }
+
+    .cta-section {
+      padding: 56px 0;
+      color: #ffffff;
+      background: var(--color-dark);
+    }
+
+    .cta-section__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta-section p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: #d7e8e4;
+      font-size: 18px;
+    }
+
+    .cta-section .button {
+      flex: 0 0 auto;
+      color: #124648;
+      background: #ffffff;
+    }
+
+    .cta-section .button:hover {
+      color: #ffffff;
+      background: var(--color-accent);
+    }
+
+    .footer {
+      padding: 36px 0;
+      color: #d4dfda;
+      background: #151c19;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+    }
+
+    .footer__title {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .footer p {
+      margin-bottom: 8px;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer__legal {
+      max-width: 960px;
+      margin-top: 18px;
+      color: #aebbb6;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .step:nth-child(2) {
+        border-right: 0;
+      }
+
+      .step:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--color-line);
+      }
+
+      .cta-section__inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step,
+      .step:nth-child(2) {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-line);
+      }
+
+      .step:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 24px, 1160px);
+      }
+
+      .topbar__inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .topbar__inner span:last-child,
+      .header .button {
+        display: none;
+      }
+
+      .header__inner {
+        min-height: 66px;
+      }
+
+      .logo img {
+        width: 160px;
+        height: 42px;
+      }
+
+      .phone {
+        font-size: 14px;
+      }
+
+      .hero__lead,
+      .section__lead {
+        font-size: 17px;
+      }
+
+      .form-card {
+        padding: 22px;
+      }
+
+      .cards,
+      .price-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .cta-section {
+        padding: 44px 0;
+      }
+
+      .cta-section .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Сервисный центр АСТ‑ПРИНТ</span>
+      <span>Ремонт банковского оборудования в Москве</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ — главная страница">
+        <img src="act-print-logo.png" alt="АСТ-ПРИНТ">
+      </a>
+      <a class="phone" href="tel:+74952053738">+7 (495) 205-37-38</a>
+      <a class="button" href="#request">Вызвать мастера</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="eyebrow">Банковское оборудование · Москва</span>
+          <h1>Ремонт сортировщиков монет в Москве</h1>
+          <p class="hero__lead">
+            Диагностируем, ремонтируем и обслуживаем сортировщики монет. Сообщите модель оборудования и симптомы неисправности — специалист уточнит порядок работ и стоимость.
+          </p>
+
+          <div class="price">
+            <span class="price__caption">Ремонт сортировщика монет</span>
+            <strong class="price__value">от 3 000 ₽</strong>
+          </div>
+
+          <div class="hero__actions">
+            <a class="button" href="#request">Заказать ремонт</a>
+            <a class="button button--secondary" href="#prices">Посмотреть цены</a>
+          </div>
+        </div>
+
+        <aside class="form-card" id="request">
+          <h2>Нужен ремонт?</h2>
+          <p>Оставьте контакты — уточним модель сортировщика монет и характер неисправности.</p>
+
+          <form action="#" method="post">
+            <div class="field">
+              <label for="name">Ваше имя</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            </div>
+
+            <div class="field">
+              <label for="issue">Проблема</label>
+              <select id="issue" name="issue">
+                <option>Выберите вариант</option>
+                <option>Монеты застревают</option>
+                <option>Сортировщик медленно обрабатывает монеты</option>
+                <option>Захватывает несколько монет</option>
+                <option>Ошибка определения номинала</option>
+                <option>Неисправность механизма сортировки</option>
+                <option>Нужно техническое обслуживание</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="comment">Модель и комментарий</label>
+              <textarea id="comment" name="comment" placeholder="Укажите модель и опишите, как проявляется неисправность"></textarea>
+            </div>
+
+            <button class="button" type="submit">Оставить заявку</button>
+            <p class="form-note">Отправляя форму, вы соглашаетесь на обработку контактных данных для ответа на заявку.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <h2>Когда нужен ремонт сортировщика монет</h2>
+        <p class="section__lead">
+          Через механизмы сортировщика регулярно проходит большое количество металлических монет. Загрязнение, естественный износ деталей и сбои в работе датчиков могут влиять на скорость и точность обработки. Для оценки состояния оборудования требуется диагностика.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Ошибка определения номинала</h3>
+            <p>Устройство неверно распознаёт номинал монеты или выводит ошибку при сортировке.</p>
+          </article>
+
+          <article class="card">
+            <h3>Замедленная обработка</h3>
+            <p>Сортировщик медленно реагирует на прохождение монет, снижая скорость выполнения операций.</p>
+          </article>
+
+          <article class="card">
+            <h3>Захват нескольких монет</h3>
+            <p>Механизм одновременно захватывает несколько монет, что может приводить к сбоям и остановке работы.</p>
+          </article>
+
+          <article class="card">
+            <h3>Неисправность механизмов</h3>
+            <p>Движущиеся элементы работают нестабильно, шумят, не запускаются или требуют обслуживания.</p>
+          </article>
+
+          <article class="card">
+            <h3>Монета застревает</h3>
+            <p>Монета останавливается внутри устройства и мешает дальнейшей сортировке.</p>
+          </article>
+
+          <article class="card">
+            <h3>Плановое обслуживание</h3>
+            <p>Техническое обслуживание помогает оценить состояние механизмов и выполнить необходимые профилактические работы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted" id="prices">
+      <div class="container">
+        <h2>Цены на ремонт сортировщиков монет</h2>
+        <p class="section__lead">
+          После диагностики специалист определяет объём необходимых работ и уточняет стоимость. Цены «от» зависят от модели, неисправности и согласованного состава работ.
+        </p>
+
+        <div class="price-list">
+          <article class="price-item">
+            <strong>Бесплатно</strong>
+            <span>Диагностика при ремонте</span>
+          </article>
+
+          <article class="price-item">
+            <strong>От 1 500 ₽</strong>
+            <span>Диагностика при отказе от ремонта</span>
+          </article>
+
+          <article class="price-item">
+            <strong>От 2 000 ₽</strong>
+            <span>Техническое обслуживание сортировщиков монет</span>
+          </article>
+
+          <article class="price-item">
+            <strong>От 3 000 ₽</strong>
+            <span>Ремонт сортировщиков монет</span>
+          </article>
+
+          <article class="price-item">
+            <strong>Бесплатно</strong>
+            <span>Выезд мастера в пределах МКАД</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <h2>Диагностика сортировщиков монет</h2>
+        <p class="section__lead">
+          Перед ремонтом проводится проверка состояния основных узлов оборудования. Специалист осматривает механизмы и детали, выполняет тестовый запуск, проверяет работу электроники и датчиков. По результатам диагностики определяется причина неисправности и согласуется перечень работ.
+        </p>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step__number">01</span>
+            <h3>Заявка</h3>
+            <p>Сообщаете модель сортировщика монет и описываете неисправность.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">02</span>
+            <h3>Проверка</h3>
+            <p>Проводится диагностика механизмов, датчиков и электронных компонентов.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">03</span>
+            <h3>Согласование</h3>
+            <p>Уточняются причина неисправности, состав работ и стоимость.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">04</span>
+            <h3>Ремонт и проверка</h3>
+            <p>После согласования выполняются работы и проверяется функционирование оборудования.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted">
+      <div class="container">
+        <h2>Выезд мастера в Москве</h2>
+        <p class="section__lead">
+          Можно заказать выезд мастера по адресу заказчика в Москве. Специалист проводит диагностику оборудования на месте и согласует дальнейший порядок работ. В пределах МКАД выезд мастера бесплатный.
+        </p>
+
+        <div class="notice">
+          <p>Чтобы специалист мог подготовиться к диагностике, укажите в заявке модель сортировщика и опишите, как проявляется неисправность.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="faq">
+      <div class="container">
+        <h2>Вопросы о ремонте сортировщиков монет</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Почему сортировщик может неверно определять номинал монеты?</summary>
+            <p>Причина может быть связана с загрязнением, состоянием датчиков, механических узлов или электронных компонентов. Точную причину определяет диагностика.</p>
+          </details>
+
+          <details>
+            <summary>Что делать, если монеты застревают внутри сортировщика?</summary>
+            <p>Остановите использование оборудования и сообщите модель устройства и характер проблемы при обращении. Специалист проведёт проверку механизма и определит необходимые работы.</p>
+          </details>
+
+          <details>
+            <summary>Сколько стоит ремонт сортировщика монет?</summary>
+            <p>Ремонт сортировщиков монет стоит от 3 000 ₽. Итоговая стоимость зависит от модели, неисправности и согласованного состава работ.</p>
+          </details>
+
+          <details>
+            <summary>Можно ли заказать выезд мастера?</summary>
+            <p>Да, можно заказать выезд мастера в Москве. В пределах МКАД выезд бесплатный.</p>
+          </details>
+
+          <details>
+            <summary>Что входит в техническое обслуживание?</summary>
+            <p>Состав технического обслуживания определяется по состоянию оборудования и согласуется после диагностики.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-section__inner">
+        <div>
+          <h2>Сортировщик монет работает с ошибками?</h2>
+          <p>Оставьте заявку и сообщите модель оборудования, тип неисправности и условия, в которых она возникает.</p>
+        </div>
+
+        <a class="button" href="#request">Вызвать мастера</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__title">АСТ‑ПРИНТ</p>
+          <p>Сервисное обслуживание и ремонт оргтехники и банковского оборудования в Москве.</p>
+          <p><a href="https://act-print.ru/">act-print.ru</a></p>
+        </div>
+
+        <div>
+          <p><a href="tel:+74952053738">+7 (495) 205-37-38</a></p>
+          <p><a href="mailto:info@act-print.ru">info@act-print.ru</a></p>
+        </div>
+      </div>
+
+      <p class="footer__legal">
+        Наименования производителей и товарные знаки принадлежат их правообладателям и используются только для идентификации совместимого оборудования.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('form').forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>
