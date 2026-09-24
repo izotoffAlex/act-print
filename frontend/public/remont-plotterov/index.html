@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
@@ -6,15 +6,15 @@
   <meta name="theme-color" content="#006d70">
   <meta name="robots" content="index,follow">
 
-  <title>Ремонт плоттеров в Москве с выездом мастера — АСТ-ПРИНТ</title>
-  <meta name="description" content="Ремонт и техническое обслуживание плоттеров в Москве. Выезд мастера в течение часа, бесплатный осмотр, диагностика и ремонт от 2 000 ₽.">
+  <title>Ремонт плоттеров в Москве — АСТ-ПРИНТ</title>
+  <meta name="description" content="Диагностика, ремонт и техническое обслуживание плоттеров в Москве. Уточняем модель, симптомы и состав работ.">
   <link rel="canonical" href="https://remont-plotterov.act-print.ru/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="АСТ-ПРИНТ">
-  <meta property="og:title" content="Ремонт плоттеров в Москве с выездом мастера — АСТ-ПРИНТ">
-  <meta property="og:description" content="Выезд мастера в течение часа в любую точку Москвы, бесплатный осмотр, диагностика и ремонт плоттеров от 2 000 ₽.">
+  <meta property="og:title" content="Ремонт плоттеров в Москве — АСТ-ПРИНТ">
+  <meta property="og:description" content="Ремонт и техническое обслуживание плоттеров в Москве. Стоимость зависит от модели и характера неисправности.">
   <meta property="og:url" content="https://remont-plotterov.act-print.ru/">
   <meta name="twitter:card" content="summary">
 
@@ -27,7 +27,7 @@
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Ремонт плоттеров в Москве",
-    "description": "Ремонт и техническое обслуживание плоттеров в Москве с выездом мастера в течение часа, бесплатным осмотром и диагностикой.",
+    "description": "Ремонт и техническое обслуживание плоттеров в Москве. Стоимость и состав работ определяются после диагностики оборудования.",
     "url": "https://remont-plotterov.act-print.ru/",
     "serviceType": "Ремонт плоттеров",
     "provider": {
@@ -317,31 +317,58 @@
 
     .brands {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(156px, 156px));
+      justify-content: start;
+      gap: 18px;
       width: 100%;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .brand {
-      display: flex;
+      display: grid;
+      grid-template-rows: minmax(146px, 1fr) auto;
       align-items: center;
-      justify-content: center;
       min-width: 0;
-      height: 96px;
-      padding: 10px;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
+      min-height: 236px;
+      overflow: hidden;
+      border: 1px solid #dedede;
+      border-radius: 0;
       background: #ffffff;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, .05);
+      box-shadow: 0 3px 10px rgba(15, 23, 42, .18);
+      text-align: center;
     }
 
     .brand img {
       display: block;
-      width: 100%;
-      max-width: 100%;
-      height: 52px;
+      width: calc(100% - 28px);
+      max-width: 116px;
+      height: 104px;
+      margin: 20px auto 12px;
       object-fit: contain;
+    }
+
+    .brand__label {
+      display: block;
+      min-height: 76px;
+      padding: 12px 8px 14px;
+      border-top: 1px solid #eeeeee;
+      color: #747474;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .brand__label strong {
+      display: block;
+      margin-top: 5px;
+      color: #5d5d5d;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.15;
+      overflow-wrap: anywhere;
     }
 
     .note { max-width: 760px; margin: 24px auto 0; color: var(--color-text-muted); text-align: center; }
@@ -428,9 +455,34 @@
     }
 
     @media (min-width: 481px) and (max-width: 640px) {
-      .brands { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .brand { height: auto; aspect-ratio: 1 / 1; padding: 12px; }
-      .brand img { height: 100%; }
+      .brands {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .brand {
+        grid-template-rows: minmax(102px, 1fr) auto;
+        min-height: 0;
+        aspect-ratio: 1 / 1.28;
+      }
+
+      .brand img {
+        width: calc(100% - 22px);
+        max-width: 112px;
+        height: 74px;
+        margin: 14px auto 8px;
+      }
+
+      .brand__label {
+        min-height: 62px;
+        padding: 8px 5px 10px;
+        font-size: 10px;
+      }
+
+      .brand__label strong {
+        margin-top: 3px;
+        font-size: 10px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -464,9 +516,34 @@
     }
 
     @media (max-width: 480px) {
-      .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .brand { min-height: 0; height: auto; aspect-ratio: 1 / 1; padding: 14px; }
-      .brand img { height: 100%; max-height: none; }
+      .brands {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .brand {
+        grid-template-rows: minmax(112px, 1fr) auto;
+        min-height: 0;
+        aspect-ratio: 1 / 1.32;
+      }
+
+      .brand img {
+        width: calc(100% - 26px);
+        max-width: 116px;
+        height: 86px;
+        margin: 16px auto 8px;
+      }
+
+      .brand__label {
+        min-height: 66px;
+        padding: 9px 6px 11px;
+        font-size: 10px;
+      }
+
+      .brand__label strong {
+        margin-top: 3px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -497,14 +574,14 @@
           <h1>Ремонт плоттеров в Москве</h1>
           <p class="hero__lead">АСТ‑ПРИНТ выполняет диагностику, ремонт и техническое обслуживание плоттеров. Плоттеры используются для чертежей, схем, карт и рисунков на бумаге вплоть до формата A0, поэтому важно своевременно устранять механические и электронные неисправности.</p>
           <div class="price">
-            <span class="price__caption">Ремонт плоттера 1-й категории</span>
-            <strong class="price__value">от 2 000 ₽</strong>
+            <span class="price__caption">Стоимость ремонта определяется после диагностики</span>
+            <strong class="price__value">Уточнить стоимость</strong>
           </div>
           <div class="hero__actions">
             <a class="button" href="#request">Узнать стоимость ремонта</a>
             <a class="button button--secondary" href="#prices">Посмотреть цены</a>
           </div>
-          <p class="notice">Осмотр оборудования на месте — бесплатный. Итоговая стоимость зависит от модели, причины неисправности и необходимых деталей.</p>
+          <p class="notice">Итоговая стоимость зависит от модели, причины неисправности, категории ремонта и необходимых работ.</p>
         </div>
 
         <aside class="form-card" id="request">
@@ -533,10 +610,10 @@
 
     <section class="advantages" aria-label="Преимущества ремонта плоттеров">
       <div class="container advantages__grid">
-        <div class="advantage"><strong>Бесплатный осмотр</strong><span>быстрая диагностика оборудования на месте</span></div>
-        <div class="advantage"><strong>До 1 часа</strong><span>выезд мастера в любую точку Москвы</span></div>
-        <div class="advantage"><strong>Детали для ремонта</strong><span>оригинальные или совместимые комплектующие</span></div>
-        <div class="advantage"><strong>Гарантия</strong><span>срок зависит от вида выполненной работы</span></div>
+        <div class="advantage"><strong>Диагностика оборудования</strong><span>уточняем характер неисправности и объём работ</span></div>
+        <div class="advantage"><strong>Согласование работ</strong><span>обсуждаем стоимость и порядок ремонта после диагностики</span></div>
+        <div class="advantage"><strong>Ремонт и обслуживание</strong><span>работаем с механическими и электронными неисправностями плоттеров</span></div>
+        <div class="advantage"><strong>Работа с оборудованием</strong><span>уточняем марку, модель, коды ошибок и симптомы неисправности</span></div>
       </div>
     </section>
 
@@ -591,25 +668,25 @@
         <h2>Марки плоттеров, с которыми работаем</h2>
         <p class="section__lead">Возможность ремонта и технического обслуживания уточняется по марке, модели и характеру неисправности оборудования.</p>
         <div class="brands" aria-label="Марки плоттеров">
-          <div class="brand"><img src="brands/hp.jpg" alt="HP" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/epson.jpg" alt="Epson" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/canon.jpeg" alt="Canon" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/mimaki.jpeg" alt="Mimaki" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/sharp.jpeg" alt="Sharp" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/roland.jpeg" alt="Roland" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/xerox.jpeg" alt="Xerox" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/oki.jpeg" alt="OKI" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/pumma.jpeg" alt="PUMMA" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/kyocera.jpeg" alt="Kyocera" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/panasonic.jpeg" alt="Panasonic" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/brother.jpeg" alt="Brother" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/GCC.jpeg" alt="GCC" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/graphtec.jpg" alt="Graphtec" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/jaguar.jpg" alt="Jaguar" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/summa.jpg" alt="Summa" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/foison.jpg" alt="Foison" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/mutoh.jpg" alt="Mutoh" width="132" height="52" loading="lazy"></div>
-          <div class="brand"><img src="brands/konica-minolta.jpg" alt="Konica Minolta" width="132" height="52" loading="lazy"></div>
+          <div class="brand"><img src="brands/hp.jpg" alt="HP" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>HP</strong></span></div>
+          <div class="brand"><img src="brands/epson.jpg" alt="Epson" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Epson</strong></span></div>
+          <div class="brand"><img src="brands/canon.jpeg" alt="Canon" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Canon</strong></span></div>
+          <div class="brand"><img src="brands/mimaki.jpeg" alt="Mimaki" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Mimaki</strong></span></div>
+          <div class="brand"><img src="brands/sharp.jpeg" alt="Sharp" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Sharp</strong></span></div>
+          <div class="brand"><img src="brands/roland.jpeg" alt="Roland" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Roland</strong></span></div>
+          <div class="brand"><img src="brands/xerox.jpeg" alt="Xerox" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Xerox</strong></span></div>
+          <div class="brand"><img src="brands/oki.jpeg" alt="OKI" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>OKI</strong></span></div>
+          <div class="brand"><img src="brands/pumma.jpeg" alt="PUMMA" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>PUMMA</strong></span></div>
+          <div class="brand"><img src="brands/kyocera.jpeg" alt="Kyocera" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Kyocera</strong></span></div>
+          <div class="brand"><img src="brands/panasonic.jpeg" alt="Panasonic" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Panasonic</strong></span></div>
+          <div class="brand"><img src="brands/brother.jpeg" alt="Brother" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Brother</strong></span></div>
+          <div class="brand"><img src="brands/GCC.jpeg" alt="GCC" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>GCC</strong></span></div>
+          <div class="brand"><img src="brands/graphtec.jpg" alt="Graphtec" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Graphtec</strong></span></div>
+          <div class="brand"><img src="brands/jaguar.jpg" alt="Jaguar" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Jaguar</strong></span></div>
+          <div class="brand"><img src="brands/summa.jpg" alt="Summa" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Summa</strong></span></div>
+          <div class="brand"><img src="brands/foison.jpg" alt="Foison" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Foison</strong></span></div>
+          <div class="brand"><img src="brands/mutoh.jpg" alt="Mutoh" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Mutoh</strong></span></div>
+          <div class="brand"><img src="brands/konica-minolta.jpg" alt="Konica Minolta" width="132" height="52" loading="lazy"><span class="brand__label">Ремонт плоттеров<strong>Konica Minolta</strong></span></div>
         </div>
         <p class="note">Если вашей марки нет в списке, сообщите её и модель в заявке — уточним возможность ремонта.</p>
       </div>
@@ -620,9 +697,9 @@
         <h2>Как проходит ремонт</h2>
         <div class="steps">
           <article class="step"><span class="step__number">01</span><h3>Оставляете заявку</h3><p>Описываете модель плоттера, коды ошибок и симптомы неисправности.</p></article>
-          <article class="step"><span class="step__number">02</span><h3>Проводим осмотр</h3><p>Мастер выезжает в любую точку Москвы в течение одного часа и проводит бесплатный осмотр оборудования.</p></article>
+          <article class="step"><span class="step__number">02</span><h3>Проводим диагностику</h3><p>Уточняем характер неисправности, состояние оборудования и предполагаемый объём работ.</p></article>
           <article class="step"><span class="step__number">03</span><h3>Согласовываем работы</h3><p>Определяем объём ремонта, необходимые детали, стоимость и срок выполнения работ.</p></article>
-          <article class="step"><span class="step__number">04</span><h3>Ремонтируем плоттер</h3><p>Выполняем ремонт или обслуживание, проверяем работу оборудования и оформляем гарантию в зависимости от вида работ.</p></article>
+          <article class="step"><span class="step__number">04</span><h3>Выполняем ремонт</h3><p>Проводим согласованные работы по ремонту или техническому обслуживанию плоттера.</p></article>
         </div>
       </div>
     </section>
