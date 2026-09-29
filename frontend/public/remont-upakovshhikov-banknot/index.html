@@ -468,6 +468,13 @@
       .brand { min-height: 0; aspect-ratio: 1 / 1; padding: 14px; }
     }
       .service-subtitle { margin: 36px 0 16px; font-size: 22px; }
+  .to-services { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #0f6b66; color: #fff; text-decoration: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .18); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+  .to-services:hover { background: #0c5753; }
+  .to-services:focus-visible { outline: 3px solid #f2b705; outline-offset: 3px; }
+  .to-services.is-hidden { opacity: 0; visibility: hidden; transform: translateY(12px); pointer-events: none; }
+  .to-services svg { width: 22px; height: 22px; }
+  @media (max-width: 640px) { .to-services { right: 14px; bottom: 14px; } }
+  @media (prefers-reduced-motion: reduce) { .to-services { transition: none; } }
   </style>
 </head>
 
@@ -531,7 +538,7 @@
       </div>
     </section>
 
-    <section class="advantages" aria-label="Виды оборудования">
+    <section class="advantages" id="services" aria-label="Виды оборудования">
       <div class="container advantages__grid">
         <a class="advantage" href="#lentochnye"><strong>Ленточные</strong><span>упаковщики банкнот</span></a>
         <a class="advantage" href="#vakuumnye"><strong>Вакуумные</strong><span>упаковщики банкнот</span></a>
@@ -732,6 +739,18 @@
         }
       });
     });
+  </script>
+  <a class="to-services is-hidden" href="#services" aria-label="Вернуться к выбору услуги" title="Вернуться к выбору услуги"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 5l-7 7 1.4 1.4L11 8.8V19h2V8.8l4.6 4.6L19 12z"/></svg></a>
+  <script>
+    (function () {
+      var button = document.querySelector('.to-services');
+      var menu = document.getElementById('services');
+      if (!button || !menu) return;
+      function update() { button.classList.toggle('is-hidden', menu.getBoundingClientRect().bottom > 0); }
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+    })();
   </script>
 </body>
 </html>

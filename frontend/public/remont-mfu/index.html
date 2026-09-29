@@ -487,6 +487,13 @@
       .brand { min-height: 0; height: auto; aspect-ratio: 1 / 1; padding: 14px; }
       .brand img { height: 100%; max-height: none; }
     }
+  .to-top { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #0f6b66; color: #fff; text-decoration: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .18); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+  .to-top:hover { background: #0c5753; }
+  .to-top:focus-visible { outline: 3px solid #f2b705; outline-offset: 3px; }
+  .to-top.is-hidden { opacity: 0; visibility: hidden; transform: translateY(12px); pointer-events: none; }
+  .to-top svg { width: 22px; height: 22px; }
+  @media (max-width: 640px) { .to-top { right: 14px; bottom: 14px; } }
+  @media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
   </style>
 </head>
 
@@ -701,6 +708,21 @@
         }
       });
     });
+  </script>
+  <a class="to-top is-hidden" href="#" aria-label="Вернуться вверх" title="Вернуться вверх"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 5l-7 7 1.4 1.4L11 8.8V19h2V8.8l4.6 4.6L19 12z"/></svg></a>
+  <script>
+    (function () {
+      var button = document.querySelector('.to-top');
+      if (!button) return;
+      function update() { button.classList.toggle('is-hidden', window.scrollY < 600); }
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+    })();
   </script>
 </body>
 </html>
