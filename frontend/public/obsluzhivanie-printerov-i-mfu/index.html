@@ -506,6 +506,7 @@
       width: 100%;
       margin-top: 28px;
     }
+    }
 
     @media (max-width: 560px) {
       .container {
@@ -563,6 +564,7 @@
       gap: 12px;
       width: 100%;
       margin-top: 28px;
+    }
     }
   /* Responsive layout: shared rules for service landings */
   @media (max-width: 1024px) {
@@ -751,6 +753,182 @@
   .to-top svg { width: 22px; height: 22px; }
   @media (max-width: 640px) { .to-top { right: 14px; bottom: 14px; } }
   @media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
+    /* Компактная мобильная шапка */
+    @media (max-width: 640px) {
+      .header .header__inner {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        min-height: 64px;
+        padding: 8px 0;
+      }
+
+      .header .logo {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+        margin: 0;
+      }
+
+      .header .logo img {
+        display: block;
+        width: 120px;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .header .phone {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-height: 44px;
+        margin-left: auto;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .header .button {
+        display: none;
+      }
+    }
+    /* Unified full header contacts */
+    .header .hdr-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-left: auto;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .header .hdr-info__col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .header .hdr-info__col--place {
+      padding-left: 16px;
+      border-left: 1px solid rgba(31, 46, 45, 0.25);
+    }
+
+    .header .hdr-info__row {
+      display: block;
+      color: #56605f;
+      font-size: 13px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .header .hdr-info .phone {
+      margin-left: 0;
+      color: #1f2e2d;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 641px) {
+      .header .header__inner {
+        display: grid;
+        grid-template-columns:
+          clamp(120px, 14vw, 180px)
+          minmax(0, 1fr)
+          clamp(132px, 14vw, 180px);
+        align-items: center;
+        gap: clamp(8px, 1.5vw, 24px);
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .header .logo {
+        min-width: 0;
+      }
+
+      .header .logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .header .hdr-info {
+        display: grid;
+        grid-template-columns: minmax(0, max-content) max-content;
+        justify-content: end;
+        align-items: center;
+        gap: clamp(8px, 1.5vw, 20px);
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        order: 0;
+      }
+
+      .header .hdr-info__col--place {
+        display: flex;
+        padding-left: 8px;
+      }
+
+      .header .hdr-info__row {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .header .hdr-info__mail {
+        display: block;
+        overflow: visible;
+        text-overflow: clip;
+      }
+
+      .header .hdr-info .phone {
+        display: block;
+        margin-left: 0;
+        font-size: clamp(14px, 1.4vw, 16px);
+        line-height: 1.15;
+        white-space: nowrap;
+      }
+
+      .header .button {
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        padding: 10px 8px;
+        font-size: 14px;
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header .hdr-info {
+        flex: 0 1 auto;
+        gap: 0;
+      }
+
+      .header .hdr-info__col {
+        align-items: flex-end;
+        gap: 0;
+      }
+
+      .header .hdr-info__col--place,
+      .header .hdr-info__mail,
+      .header .hdr-info .hdr-info__mobile {
+        display: none;
+      }
+
+      .header .hdr-info .phone:not(.hdr-info__mobile) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-height: 44px;
+        font-size: 14px;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -785,6 +963,37 @@
 </head>
 
 <body>
+<!-- Yandex.Metrica counter -->
+<script type="text/javascript">
+(function (m, e, t, r, i, k, a) {
+m[i] = m[i] || function () {
+(m[i].a = m[i].a || []).push(arguments)
+};
+m[i].l = 1 * new Date();
+k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+})
+
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym("51840956", "init", {
+clickmap: true,
+trackLinks: true,
+accurateTrackBounce: true,
+webvisor: true,
+ecommerce: "dataLayer",
+params: {
+__ym: {
+"ymCmsPlugin": {
+"cms": "wordpress",
+"cmsVersion":"7.1",
+"pluginVersion": "1.2.2",
+"ymCmsRip": "6463848"
+}
+}
+}
+});
+</script>
+<!-- /Yandex.Metrica counter -->
   <div class="topbar">
     <div class="container topbar__inner">
       <span>Сервисный центр АСТ-ПРИНТ · Москва и Московская область</span>
@@ -797,7 +1006,18 @@
       <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт">
   <img src="act-print-logo.png" alt="АСТ-ПРИНТ" width="180" height="48">
 </a>
-      <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>
+      <div class="hdr-info" aria-label="Контакты АСТ-ПРИНТ">
+        <div class="hdr-info__col hdr-info__col--place">
+          <span class="hdr-info__row">ул. Сергия Радонежского 15-17 с.8</span>
+          <span class="hdr-info__row">м. Площадь Ильича, Римская</span>
+          <span class="hdr-info__row">пн-чт 09:00-19:00, пт 09:00-18:00</span>
+        </div>
+        <div class="hdr-info__col">
+          <a class="hdr-info__row hdr-info__mail" href="mailto:info@act-print.ru">info@act-print.ru</a>
+          <a class="phone" href="tel:+74952053738">+7 (495) 205-37-38</a>
+          <a class="phone hdr-info__mobile" href="tel:+79154646461">+7 (915) 464-64-61</a>
+        </div>
+      </div>
       <a class="button" href="#request">Вызвать мастера</a>
     </div>
   </header>
@@ -1034,5 +1254,6 @@
       window.addEventListener('scroll', update, { passive: true });
     })();
   </script>
+  <script src="https://act-print.ru/common/lndgs/feedback.js"></script>
 </body>
 </html>

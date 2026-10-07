@@ -115,6 +115,23 @@
     }
 
     .phone { margin-left: auto; font-weight: 700; white-space: nowrap; }
+    .hdr-info { margin-left: auto; display: flex; align-items: center; gap: 24px; min-width: 0; }
+    .hdr-info__col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .hdr-info__col--place { padding-left: 14px; border-left: 3px solid currentColor; opacity: .85; }
+    .hdr-info__row { font-size: 13px; line-height: 1.35; color: inherit; text-decoration: none; white-space: nowrap; }
+    .hdr-info .phone { margin-left: 0; line-height: 1.3; }
+    .hdr-info__mail:hover, .hdr-info .phone:hover { text-decoration: underline; }
+    @media (max-width: 1024px) { .hdr-info__col--place { display: none; } }
+    @media (max-width: 640px) {
+      .header .header__inner { width: calc(100% - 32px); margin-inline: auto; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 8px 0; }
+      .header .logo { display: inline-flex; align-items: center; flex: 0 0 auto; margin: 0; }
+      .header .logo img { display: block; width: 120px; max-width: 100%; height: auto; object-fit: contain; }
+      .header .hdr-info { display: flex; flex: 0 1 auto; min-width: 0; margin-left: auto; gap: 0; }
+      .header .hdr-info__col:not(.hdr-info__col--place) { display: flex; align-items: flex-end; min-width: 0; gap: 0; }
+      .header .hdr-info__col--place, .header .hdr-info__mail, .header .hdr-info .hdr-info__mobile { display: none; }
+      .header .hdr-info .phone:not(.hdr-info__mobile) { display: inline-flex; align-items: center; justify-content: flex-end; min-height: 44px; margin: 0; padding: 0; font-size: 14px; font-weight: 700; white-space: nowrap; }
+      .header .button { display: none; }
+    }
 
     .button {
       display: inline-flex;
@@ -489,6 +506,37 @@
 </head>
 
 <body>
+<!-- Yandex.Metrica counter -->
+<script type="text/javascript">
+(function (m, e, t, r, i, k, a) {
+m[i] = m[i] || function () {
+(m[i].a = m[i].a || []).push(arguments)
+};
+m[i].l = 1 * new Date();
+k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+})
+
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym("51840956", "init", {
+clickmap: true,
+trackLinks: true,
+accurateTrackBounce: true,
+webvisor: true,
+ecommerce: "dataLayer",
+params: {
+__ym: {
+"ymCmsPlugin": {
+"cms": "wordpress",
+"cmsVersion":"7.1",
+"pluginVersion": "1.2.2",
+"ymCmsRip": "6463848"
+}
+}
+}
+});
+</script>
+<!-- /Yandex.Metrica counter -->
   <div class="topbar">
     <div class="container topbar__inner">
       <span>Сервисный центр АСТ-ПРИНТ · Москва</span>
@@ -501,7 +549,18 @@
       <a class="logo" href="https://act-print.ru/" aria-label="АСТ-ПРИНТ, основной сайт">
         <img src="act-print-logo.png" alt="АСТ-ПРИНТ" width="180" height="48">
       </a>
-      <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>
+      <div class="hdr-info" aria-label="Контакты АСТ-ПРИНТ">
+        <div class="hdr-info__col hdr-info__col--place">
+          <span class="hdr-info__row">ул. Сергия Радонежского 15-17 с.8</span>
+          <span class="hdr-info__row">м. Площадь Ильича, Римская</span>
+          <span class="hdr-info__row">пн-чт 09:00-19:00, пт 09:00-18:00</span>
+        </div>
+        <div class="hdr-info__col">
+          <a class="hdr-info__row hdr-info__mail" href="mailto:info@act-print.ru">info@act-print.ru</a>
+          <a class="phone" href="tel:+74952053738">+7 (495) 205‑37‑38</a>
+          <a class="phone hdr-info__mobile" href="tel:+79154646461">+7 (915) 464-64-61</a>
+        </div>
+      </div>
       <a class="button" href="#request">Вызвать мастера</a>
     </div>
   </header>
@@ -551,7 +610,7 @@
 
     <section class="advantages" aria-label="Преимущества">
       <div class="container advantages__grid">
-        <div class="advantage"><strong>Бесплатная диагностика</strong><span>определяем причину неисправности</span></div>
+        <div class="advantage"><strong>Диагностика</strong><span>оплачивается при отказе от ремонта</span></div>
         <div class="advantage"><strong>Выезд мастера</strong><span>ремонтируем технику в удобное время</span></div>
         <div class="advantage"><strong>Ремонт на месте</strong><span>в большинстве случаев без перевозки техники</span></div>
         <div class="advantage"><strong>Гарантия</strong><span>на выполненные работы и заменённые комплектующие</span></div>
@@ -576,7 +635,7 @@
     <section class="section section--white">
       <div class="container">
         <h2>Цены на ремонт принтеров</h2>
-        <p class="section__lead">Стоимость указана без учёта деталей. Категория ремонта определяется после диагностики оборудования.</p>
+        <p class="section__lead">Стоимость указана без учёта деталей. Категория ремонта определяется после диагностики оборудования. Диагностика оплачивается при отказе от ремонта.</p>
         <div class="table-wrap">
           <table class="price-table">
             <thead>
@@ -642,7 +701,7 @@
         <h2>Как проходит ремонт</h2>
         <div class="steps">
           <article class="step"><span class="step__number">01</span><h3>Оставляете заявку</h3><p>Сообщаете модель принтера и описываете симптомы неисправности.</p></article>
-          <article class="step"><span class="step__number">02</span><h3>Проводим диагностику</h3><p>Мастер определяет причину поломки, согласует ориентировочную стоимость и срок ремонта.</p></article>
+          <article class="step"><span class="step__number">02</span><h3>Проводим диагностику</h3><p>Мастер определяет причину поломки, сообщает стоимость диагностики при отказе от ремонта и согласует дальнейшие работы.</p></article>
           <article class="step"><span class="step__number">03</span><h3>Ремонтируем технику</h3><p>В большинстве случаев работы выполняются на месте. При неисправностях электроники принтер может потребовать доставки в мастерскую.</p></article>
           <article class="step"><span class="step__number">04</span><h3>Проверяем результат</h3><p>После ремонта проверяем работу оборудования и предоставляем гарантию на выполненные работы и заменённые комплектующие.</p></article>
         </div>
@@ -696,5 +755,6 @@
       window.addEventListener('scroll', update, { passive: true });
     })();
   </script>
+  <script src="https://act-print.ru/common/lndgs/feedback.js"></script>
 </body>
 </html>
