@@ -783,5 +783,41 @@ __ym: {
     })();
   </script>
   <script src="https://act-print.ru/common/lndgs/feedback.js"></script>
+<script id="ast-land-click-goals">
+(function () {
+  if (window.__astLandClickGoalsInstalled) return;
+  window.__astLandClickGoalsInstalled = true;
+
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!(target instanceof Element)) return;
+
+    var element = target.closest('a, button, input[type="submit"]');
+    if (!element) return;
+
+    var goal = '';
+    var text = (element.textContent || element.value || '')
+      .replace(/\s+/g, ' ').trim();
+
+    if (element.matches('a[href^="tel:"]')) {
+      goal = 'land_phone_click';
+    } else if (
+      element.matches('a[href="#request"]') &&
+      text === 'Узнать стоимость ремонта'
+    ) {
+      goal = 'land_price_click';
+    } else if (
+      element.matches('button[type="submit"], input[type="submit"]') &&
+      text === 'Получить консультацию'
+    ) {
+      goal = 'land_feedback_click';
+    }
+
+    if (goal && typeof window.ym === 'function') {
+      window.ym(51840956, 'reachGoal', goal);
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>

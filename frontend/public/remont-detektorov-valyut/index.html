@@ -1091,5 +1091,23 @@ __ym: {
     })();
   </script>
   <script src="https://act-print.ru/common/lndgs/feedback.js"></script>
+<script id="ast-land-click-goals">
+(function () {
+  if (window.__astLandClickGoalsInstalled) return;
+  window.__astLandClickGoalsInstalled = true;
+
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!(target instanceof Element)) return;
+
+    var element = target.closest('a[href^="tel:"]');
+    if (!element) return;
+
+    if (typeof window.ym === 'function') {
+      window.ym(51840956, 'reachGoal', 'land_phone_click');
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
