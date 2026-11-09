@@ -633,7 +633,53 @@
   .to-top svg { width: 22px; height: 22px; }
   @media (max-width: 640px) { .to-top { right: 14px; bottom: 14px; } }
   @media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
-  </style>
+      .form-consent {
+      display: grid;
+      grid-template-columns: 20px minmax(0, 1fr);
+      align-items: start;
+      gap: 10px;
+      margin-top: 18px;
+      min-width: 0;
+    }
+
+    .form-consent .form-consent__checkbox {
+      display: block;
+      width: 20px;
+      height: 20px;
+      min-height: 0;
+      margin: 2px 0 0;
+      padding: 0;
+      border-radius: 3px;
+      accent-color: var(--color-primary);
+      cursor: pointer;
+    }
+
+    .form-consent .form-consent__text {
+      min-width: 0;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+    }
+
+    .form-consent__text a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .form-consent__text a:hover {
+      color: var(--color-primary-hover);
+    }
+
+    .form-consent__checkbox:focus-visible,
+    .form-consent__text a:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+</style>
 </head>
 
 <body>
@@ -748,6 +794,13 @@ __ym: {
               <textarea id="comment" name="comment" placeholder="Например: 3 МФУ на 6 месяцев для офиса"></textarea>
             </div>
 
+            <div class="form-consent">
+              <input class="form-consent__checkbox" id="rental-privacy-consent" name="privacy_consent" type="checkbox" value="yes" required>
+              <label class="form-consent__text" for="rental-privacy-consent">
+                Нажимая на кнопку &laquo;Получить консультацию&raquo;, я даю согласие на обработку персональных данных в соответствии с
+                <a href="https://act-print.ru/politika-konfidencialnosti/" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
+              </label>
+            </div>
             <button class="button" type="submit">Получить консультацию</button>
           </form>
 
@@ -919,7 +972,40 @@ __ym: {
       window.addEventListener('scroll', update, { passive: true });
     })();
   </script>
-  <script src="https://act-print.ru/common/lndgs/feedback.js"></script>
+
+  <script id="ast-rental-consent-guard">
+    (function () {
+      'use strict';
+
+      var consent = document.getElementById('rental-privacy-consent');
+      if (!consent || !consent.form) return;
+
+      var form = consent.form;
+
+      function updateValidity() {
+        consent.setCustomValidity(
+          consent.checked
+            ? ''
+            : 'Для отправки заявки подтвердите согласие на обработку персональных данных.'
+        );
+      }
+
+      updateValidity();
+      consent.addEventListener('change', updateValidity);
+
+      document.addEventListener('submit', function (event) {
+        if (event.target !== form) return;
+
+        updateValidity();
+
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          form.reportValidity();
+        }
+      }, true);
+    })();
+  </script>
 <script id="ast-land-click-goals">
 (function () {
   if (window.__astLandClickGoalsInstalled) return;
@@ -951,5 +1037,6 @@ __ym: {
   }, true);
 })();
 </script>
+  <script src="https://act-print.ru/common/lndgs/feedback.js"></script>
 </body>
 </html>
